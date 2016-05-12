@@ -1,0 +1,18 @@
+<div class="post-share">
+	<span>Поделиться:</span>
+
+	<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="balank">
+		<i class="fa fa-facebook"></i>
+	</a>
+
+	<a class="twitter" href="https://twitter.com/home?status=Interesting%20article%20{{ request.build_absolute_uri }}" target="balank">
+		<i class="fa fa-twitter"></i>
+	</a>
+
+	<a class="gplus" href="https://plus.google.com/share?url={{ request.build_absolute_uri }}"><i class="fa fa-google-plus"></i></a>
+
+	<a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title=Interesting%20article&source={{ request.build_absolute_uri }}"><i class="fa fa-linkedin"></i></a>
+	
+
+	<a class="vk" href="http://vk.com/share.php?url={{ request.build_absolute_uri }}" target="_blank"><i class="fa fa-vk"></i></a>
+</div>

@@ -1,0 +1,116 @@
+{% extends "main.html" %}
+
+{% block title %}
+	{{ new.title }}
+{% endblock title%}
+
+{% block content %}
+   <!-- Start Page Banner -->
+    <div class="page-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <ul class="breadcrumbs">
+              <li><a href="#">Главная</a></li>
+              <li><a href="/news/">Новости</a></li>
+              <li>{{ new.title }}</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+          	<div class="navbar-title">
+	          	<h2> НОВОСТИ <p>школы Capoeira de Rua</p> </h2>           
+          	</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Page Banner -->
+
+    <!-- Start Content -->
+    <div id="content">
+      <div class="container">
+        <div class="row blog-post-page">
+          <div class="col-md-9 blog-box">
+
+            <!-- Start Single Post Area -->
+            <div class="blog-post gallery-post">
+
+              <!-- Start Single Post Content -->
+              <div class="post-content">
+                <div class="post-type"><i class="fa fa-picture-o"></i></div>
+                <h2>{{ new.title }}</h2>
+                <ul class="post-meta">
+                  <li>{{ new.updated }}</li>
+                </ul>
+                <p>{{ new.detail_text }}</p>
+
+                <div class="touch-slider post-slider">
+                	{% if new.image %}
+	                  <div class="item">
+	                    <a class="lightbox" title="This is an image title" href="{{ new.image.url }}" data-lightbox-gallery="gallery1">
+	                      <img alt="" src="{{ new.image.url }}">
+	                    </a>
+	                  </div>
+                  	{% endif %}
+                </div>
+
+                <div class="post-bottom clearfix">
+                  {% include "social_links.html" %}
+                </div>
+              </div>
+              <!-- End Single Post Content -->
+
+            </div>
+            <!-- End Single Post Area -->
+          </div>
+
+
+          <!--Sidebar-->
+          <div class="col-md-3 sidebar right-sidebar">
+
+            <!-- Search Widget -->
+            <div class="widget widget-search">
+              <form action="#">
+                <input type="search" placeholder="Enter Keywords..." />
+                <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+              </form>
+            </div>
+
+            <!-- Categories Widget -->
+            <div class="widget widget-categories">
+              <a class="main-button" href="/news/">Вернуться к списку новостей <i class="fa fa-angle-right"></i></a>
+            </div>
+
+            <!-- Start Post -->
+		    <div class="blog-post quote-post">
+		        <div class="qoute-box">
+		          <a href="#">
+		            <h2>"Капоэйра свободна, это полностью свободный спорт, каждый движется и развивается согласно своим возможностям"</h2>
+		            <div class="qoute-author">Местре Суассуна</div>
+		          </a>
+		        </div>
+		    </div>
+		    <!-- End Post -->
+
+            <!-- Tags Widget -->
+            <div class="widget widget-tags">
+              <h4>Теги <span class="head-line"></span></h4>
+              <div class="tagcloud">
+                <a href="#">Секция капоэйры</a>
+                <a href="#">Боевое искусство</a>
+                <a href="#">Школа капоэйры в Ростове</a>
+                <a href="#">Школа капоэйры в Шахтах</a>
+                <a href="#">Школа капоэйры в Цымлянске</a>
+              </div>
+            </div>
+
+          </div>
+          <!--End sidebar-->
+
+
+        </div>
+
+      </div>
+    </div>
+    <!-- End content -->
+{% endblock content %}

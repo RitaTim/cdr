@@ -1,0 +1,272 @@
+<!doctype html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
+<html lang="en">
+
+<head>
+  {% load staticfiles %}
+  <!-- Define Charset -->
+  <meta charset="utf-8">
+
+  <!-- Responsive Metatag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Page Description and Author -->
+  <meta name="description" content="Capoeira de rua - школа капоэйры в Ростове-на-Дону, Цимлянске, Шахтах">
+  <meta name="keywords" content="Капоэйра, спортивная секция по боевому искусству.">
+  <meta name="author" content="iThemesLab">
+
+    <!-- Bootstrap CSS  -->
+  <link rel="stylesheet" href="{% static 'asset/css/bootstrap.min.css'%}" type="text/css" media="screen">
+
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}" type="text/css" media="screen">
+
+  <!-- Slicknav -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/slicknav.css'%}" media="screen">
+
+  <!-- Margo CSS Styles  -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}" media="screen">
+
+  <!-- Responsive CSS Styles  -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css'%}" media="screen">
+
+  <!-- Css3 Transitions Styles  -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css'%}" media="screen">
+
+  <!-- Color CSS Styles  -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/colors/jade.css'%}" title="jade" media="screen" />
+
+  <!-- Margo JS  -->
+  <script type="text/javascript" src="{% static 'js/jquery-2.1.4.min.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.migrate.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/modernizrr.js'%}"></script>
+  <script type="text/javascript" src="{% static 'asset/js/bootstrap.min.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.fitvids.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/owl.carousel.min.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/nivo-lightbox.min.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.isotope.min.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.appear.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/count-to.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.textillate.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.lettering.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.easypiechart.min.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.nicescroll.min.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.parallax.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/mediaelement-and-player.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.slicknav.js'%}"></script>
+
+    <!-- Basic -->
+  	<title>
+	  	{% block title %}
+	  		Capoeira de Rua
+		{% endblock title%}
+	</title>
+</head>
+
+<body>
+	
+  <!-- Full Body Container -->
+  <div id="container">
+
+
+    <!-- Start Header Section -->
+    <div class="hidden-header"></div>
+    <header class="clearfix">
+
+      <!-- Start  Logo & Naviagtion  -->
+      <div class="navbar navbar-default navbar-top">
+        <div class="container">
+          <div class="navbar-header">
+            <!-- Stat Toggle Nav Link For Mobiles -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <i class="fa fa-bars"></i>
+            </button>
+            <!-- End Toggle Nav Link For Mobiles -->
+            <a class="navbar-brand" href="index.html">
+              <img alt="" src="{% static 'images/logo-min.png'%}">
+            </a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <!-- Stat Search -->
+            <div class="search-side">
+              <a class="show-search"><i class="fa fa-search"></i></a>
+              <div class="search-form">
+                <form autocomplete="off" role="search" method="get" class="searchform" action="#">
+                  <input type="text" value="" name="s" id="s" placeholder="Search the site...">
+                </form>
+              </div>
+            </div>
+            <!-- End Search -->
+            <!-- Start Navigation List -->
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a class="active" href="/">Главная</a>
+              </li>
+              <li>
+                <a href="#">Школа</a>
+              </li>
+              <li>
+                <a href="#">Филиалы</a>
+              </li>              
+              <li>
+                <a href="#">Новости</a>
+              </li>
+              <li>
+                <a href="#">Расписание</a>
+              </li>
+              <li>
+                <a href="#">Галлерея</a>
+              </li>
+              <li>
+                <a href="#">Академия</a>
+              </li>
+            </ul>
+            <!-- End Navigation List -->
+          </div>
+        </div>
+
+        <!-- Mobile Menu Start -->
+        <ul class="wpb-mobile-menu">
+           <li>
+              <a class="active" href="/">Главная</a>
+            </li>
+            <li>
+              <a href="#">Школа</a>
+            </li>
+            <li>
+              <a href="#">Филиалы</a>
+            </li>              
+            <li>
+              <a href="#">Новости</a>
+            </li>
+            <li>
+              <a href="#">Расписание</a>
+            </li>
+            <li>
+              <a href="#">Галлерея</a>
+            </li>
+            <li>
+              <a href="#">Академия</a>
+            </li>
+        </ul>
+        <!-- Mobile Menu End -->
+
+      </div>
+      <!-- End Header Logo & Naviagtion -->
+
+    </header>
+    <!-- End Header Section -->
+	
+	{% block content %}
+	{% endblock content%}
+
+	<!-- Start Footer Section -->
+    <footer>
+      <div class="container">
+        <div class="row footer-widgets">
+
+
+          <!-- Start Subscribe & Social Links Widget -->
+          <div class="col-md-3 col-xs-12">
+            <div class="footer-widget mail-subscribe-widget">
+              <span class="h4">В курсе всех дел<span class="head-line"></span></span>
+              <p>Оставьте свой e-mail, и вам будут приходить самые последние новости школы</p>
+              <form class="subscribe">
+                <input type="text" placeholder="mail@example.com">
+                <input type="submit" class="btn-system" value="Согласен">
+              </form>
+            </div>
+          </div>
+          <!-- .col-md-3 -->
+          
+          <div class="col-md-3 col-xs-12">
+            <div class="footer-widget social-widget">
+              <span class="h4">Мы в соцсетях<span class="head-line"></span></span>
+              <ul class="social-icons">
+                <li>
+                  <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li>
+                  <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a class="instgram" href="#"><i class="fa fa-instagram"></i></a>
+                </li>
+                <li>
+                  <a class="vimeo" href="#"><i class="fa fa-vimeo-square"></i></a>
+                </li>
+                <li>
+                  <a class="skype" href="#"><i class="fa fa-skype"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- .col-md-3 -->
+          <!-- End Subscribe & Social Links Widget -->
+
+
+          <!-- Start Contact Widget -->
+          <div class="col-md-3 col-xs-12">
+            <div class="footer-widget contact-widget">
+              <span class="h4">Вы можете связаться с нами в любое время</span>
+              <ul>
+                <li><span>Номер телефона:</span> 8(988)890-36-05</li>
+                <li><span>Email:</span> capoeiraderua@mail.ru</li>
+              </ul>
+            </div>
+          </div>
+          <!-- .col-md-3 -->
+          <!-- End Contact Widget -->
+          
+          <div class="col-md-3 col-xs-12">
+            <div class="footer-widget contact-widget">
+              <span class="h4"><img src="{% static 'images/logo-min.png' %}" class="img-responsive" alt="Footer Logo" /></span>
+            </div>
+          </div>
+
+        </div>
+        <!-- .row -->
+
+        <!-- Start Copyright -->
+        <div class="copyright-section">
+          <div class="row">
+            <div class="col-md-6">
+              <p>&copy; Официальный сайт школы капоэйры <a href="#">Capoeira de Rua</a></p>
+            </div>
+            <!-- .col-md-6 -->
+            <div class="col-md-6">
+              <ul class="footer-nav">
+                <li><a href="#">Контакты</a>
+                </li>
+              </ul>
+            </div>
+            <!-- .col-md-6 -->
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- End Copyright -->
+
+      </div>
+    </footer>
+    <!-- End Footer Section -->
+
+
+  </div>
+  <!-- End Full Body Container -->
+
+  <!-- Go To Top Link -->
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+  <div id="loader">
+    <div class="spinner">
+      <div class="dot1"></div>
+      <div class="dot2"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+{% extends "main.html" %}
+
+{% block title %}
+	Новости
+{% endblock title%}
+
+{% block content %}
+	 <!-- Start Page Banner -->
+    <div class="page-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <ul class="breadcrumbs">
+              <li><a href="#">Главная</a></li>
+              <li>Новости</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+          	<div class="navbar-title">
+	          	<h2> НОВОСТИ <p>школы Capoeira de Rua</p> </h2>          
+          	</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Page Banner -->
+
+
+    <!-- Start Content -->
+    <div id="content">
+      <div class="container">
+        <div class="row blog-page">
+
+          <!-- Start Blog Posts -->
+          <div class="col-md-9 blog-box">
+
+
+          	{% for new in news %}
+	            <!-- Start Post -->
+	            <div class="blog-post image-post">
+	              <!-- Post Thumb -->
+	              
+	              <!-- Post Content -->
+	              <div class="post-content">
+	                <div class="post-type"><i class="fa fa-picture-o"></i></div>
+	                <h2><a href="{{ new.get_absolute_url }}">{{ new.title }}</a></h2>
+	                <ul class="post-meta">
+	                  <li>{{ new.updated }}</li>
+	                </ul>
+	                <p>{{ new.preview_text }}</p>
+
+	                {% if new.image %}
+	                <div>
+		                <a class="lightbox" title="This is an image title" href="{{ new.image.url }}">
+		                  <img alt="" class="image-in-list" src="{{ new.image.url }}">
+		                </a>
+		            </div>
+	              	{% endif %}
+	              	<br>
+	              	<div>
+	                	<a class="main-button" href="{{ new.get_absolute_url }}">Подробнее <i class="fa fa-angle-right"></i></a>
+	                </div>
+	              </div>
+	            </div>
+	            <!-- End Post -->
+            {% endfor %}
+
+            <!-- Start Pagination -->
+            <div id="pagination">
+              	<span class="all-pages">Страница {{ news.number }} of {{ news.paginator.num_pages }}</span>
+                {% if news.has_previous %}
+		            <a class="page-num"  href="?page={{ news.previous_page_number }}">{{ news.previous_page_number }}</a>
+		        {% endif %}
+              	<span class="current page-num">{{ news.number }}</span>
+              	{% if news.has_next %}
+		            <a class="next-page"  href="?page={{ news.next_page_number }}">{{ news.next_page_number }}</a>
+		        {% endif %}
+              	{% if news.has_next %}
+		            <a class="next-page"  href="?page={{ news.next_page_number }}">Следующая страница</a>
+		        {% endif %}
+            </div>
+            <!-- End Pagination -->
+
+          </div>
+          <!-- End Blog Posts -->
+
+
+          <!--Sidebar-->
+          <div class="col-md-3 sidebar right-sidebar">
+
+            <!-- Search Widget -->
+            <div class="widget widget-search">
+              <form action="#">
+                <input type="search" placeholder="Enter Keywords..." />
+                <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+              </form>
+            </div>
+
+            <!-- Categories Widget -->
+            <div class="widget widget-categories">
+              <span class="h4">Категории <span class="head-line"></span></span>
+              <ul>
+                <li>
+                  <a href="#">Последние</a>
+                </li>
+                <li>
+                  <a href="#">Намечающиеся мероприятия</a>
+                </li>
+                <li>
+                  <a href="#">Школа в Ростове</a>
+                </li>
+                <li>
+                  <a href="#">Школа в Шахтах</a>
+                </li>
+                <li>
+                  <a href="#">Школа в Цымлянске</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Start Post -->
+		    <div class="blog-post quote-post">
+		        <div class="qoute-box">
+		          <a href="#">
+		            <h2>"Капоэйра свободна, это полностью свободный спорт, каждый движется и развивается согласно своим возможностям"</h2>
+		            <div class="qoute-author">Местре Суассуна</div>
+		          </a>
+		        </div>
+		    </div>
+		    <!-- End Post -->
+
+            <!-- Tags Widget -->
+            <div class="widget widget-tags">
+              <h4>Теги <span class="head-line"></span></h4>
+              <div class="tagcloud">
+                <a href="#">Секция капоэйры</a>
+                <a href="#">Боевое искусство</a>
+                <a href="#">Школа капоэйры в Ростове</a>
+                <a href="#">Школа капоэйры в Шахтах</a>
+                <a href="#">Школа капоэйры в Цымлянске</a>
+              </div>
+            </div>
+
+          </div>
+          <!--End sidebar-->
+
+
+        </div>
+      </div>
+    </div>
+    <!-- End Content -->
+{% endblock content %}
