@@ -1,4 +1,6 @@
-CREATE -- POST -- Make new
-RETRIEVE -- GET -- List / Search
-UPDATE -- PUT/PUCH -- Edit
-DELETE -- DELETE -- Deleted
+<ul>
+<li>CREATE -- POST -- Make new</li>
+<li>RETRIEVE -- GET -- List / Search</li>
+<li>UPDATE -- PUT/PUCH -- Edit</li>
+<li>DELETE -- DELETE -- Deleted</li>
+</ul>
