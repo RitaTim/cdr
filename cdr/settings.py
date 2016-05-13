@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'transliterate',
     'slider',
     'news',
+    'what_you_get',
 ]
 
 MIDDLEWARE_CLASSES = [

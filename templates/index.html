@@ -1,0 +1,108 @@
+{% extends 'main.html' %}
+
+{% block title %}
+	Capoeira de Rua - школа капоэйры, бразильского боевого искусства
+{% endblock title%}
+
+{% block content %}
+		<!-- Start Home Page Slider -->
+		<section id="home">
+			<!-- Carousel -->
+			<div id="main-slide" class="carousel slide" data-ride="carousel">
+
+				<!-- Carousel inner -->
+				<div class="carousel-inner">
+					{% for slide in list_slider %}
+						 <div class="item {% if slide.is_main %} active {% endif %}">
+							<img class="img-responsive" src="{{ slide.img.url }}" alt="slider">
+							<div class="slider-content">
+								<div class="col-md-12 text-center">
+									<h2 class="animated2">
+											<span><strong>{{ slide.title_h1 }}</strong></span>                      
+									</h2>
+									<h3 class="animated3">
+											<span><strong>{{ slide.title_h2 }}</strong></span>
+									 </h3>
+									{% if slide.title_btn %}
+										<p class="animated4">
+											<a href="{% if slide.href_btn %} slide.href_btn {% else %} '#' {% endif %}" class="slider btn btn-system btn-large">{{ slide.title_btn }}</a>
+										</p>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+				<!-- Carousel inner end-->
+
+				<!-- Controls -->
+				<a class="left carousel-control" href="#main-slide" data-slide="prev">
+					<span><i class="fa fa-angle-left"></i></span>
+				</a>
+				<a class="right carousel-control" href="#main-slide" data-slide="next">
+					<span><i class="fa fa-angle-right"></i></span>
+				</a>
+			</div>
+			<!-- /carousel -->
+		</section>
+		<!-- End Home Page Slider -->
+
+		<!-- Start Services Section -->
+		<div class="section service">
+			<div class="container">
+				<div class="row">
+					<div class="big-title text-center animated fadeInDown delay-01" data-animation="fadeInDown" data-animation-delay="01">
+						<span class="h1">Что вам даст капоэйра?</span>
+					</div>
+					{% for item in list_what_you_get %}
+						<div class="col-md-4 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="01">
+							<div class="service-icon">
+								{% if item.icon %}
+									{{ item.icon.url }}
+								{% else %}
+									<i class="fa fa-leaf icon-large"></i>
+								{% endif %}
+							</div>
+							<div class="service-content">
+								<h4>{{ item.title }}</h4>
+								<p>{{ item.description }}</p>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+				<!-- .row -->
+			</div>
+			<!-- .container -->
+		</div>
+		<!-- End Services Section -->
+
+		<!-- Start Purchase Section -->
+		<div class="section purchase">
+			<div class="container">
+				<!-- Start Video Section Content -->
+				<div class="section-video-content text-center">
+
+					<!-- Start Animations Text -->
+					<h1 class="fittext wite-text uppercase tlt">
+						<span class="texts">
+							<span>Физические нагрузки</span>
+							<span>Заряд бодрости</span>
+							<span>Положительную энергию</span>
+							<span>Музыку</span>
+							<span>Танцы</span>
+						</span>
+							вы найдете в нашей школе!
+					</h1>
+					<!-- End Animations Text -->
+
+					<!-- Start Buttons -->
+					<a href="#" class="btn-system btn-large">Хочу заниматься</a>
+
+				</div>
+				<!-- End Section Content -->
+			</div>
+			<!-- .container -->
+		</div>
+		<!-- End Purchase Section -->
+
+{% endblock content %}
