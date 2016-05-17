@@ -3973,6 +3973,10 @@ ul.post-meta li, ul.post-meta li a {
 	margin: 0;
 }
 
+.widget .h4 {
+	margin-top: 20px; 
+}
+
 .widget-search input[type="search"] {
     position: relative;
 	margin: 0;

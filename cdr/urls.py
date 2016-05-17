@@ -24,8 +24,9 @@ from .views import start_page
 urlpatterns = [
 	url(r'^$', start_page),
 	url(r'^admin/', admin.site.urls),
-	url(r'^news/', include("news.urls"))
-] 
+	url(r'^news/', include("news.urls")),
+	url(r'^filials/', include("filials.urls")),
+]
 
 if settings.DEBUG:
 	urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

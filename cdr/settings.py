@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'slider',
     'news',
     'what_you_get',
+    'trainers',
+    'filials'
 ]
 
 MIDDLEWARE_CLASSES = [
