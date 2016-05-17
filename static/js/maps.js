@@ -3,6 +3,7 @@ $(document).ready(function(){
 		var posLatitude = parseFloat($('#' + map_id).data('position-latitude'));
 		var posLongitude = parseFloat($('#' + map_id).data('position-longitude'));
 		var metka_url = $('#' + map_id).data('marker-img');
+		var metka_title = $('#' + map_id).data('marker-title');
 
 		var options = {
 			center: {lat: posLatitude, lng: posLongitude},
@@ -31,6 +32,7 @@ $(document).ready(function(){
 		var marker = new google.maps.Marker({
 			position: {lat: posLatitude, lng: posLongitude},
 			map: window[map_id],
+			title: metka_title,
 			icon: icon,
 			draggable: false
 		});
@@ -43,6 +45,6 @@ $(document).ready(function(){
 		load_map(map_id);
 	});
 
-	map_id = 'map-' + $('.nav-tabs .active a').data('map-id');
+	map_id = 'map-' + $('.nav-tabs li :first').data('map-id');
 	load_map(map_id);
 });

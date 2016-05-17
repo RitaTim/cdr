@@ -5710,3 +5710,7 @@ ul.footer-nav li a:hover {
 .image-in-list {
 	max-height: 400px;
 }
+
+.photo-in-list {
+	padding: 30px;
+}
