@@ -43,7 +43,7 @@
 									<div class="post-type"><i class="fa fa-picture-o"></i></div>
 									<h2><a href="{{ new.get_absolute_url }}">{{ new.title }}</a></h2>
 									<ul class="post-meta">
-										<li>{{ new.updated }}</li>
+										<li>{{ new.updated | date:"d E Y" }}</li>
 									</ul>
 									<p>{{ new.preview_text }}</p>
 
@@ -65,17 +65,17 @@
 
 						<!-- Start Pagination -->
 						<div id="pagination">
-								<span class="all-pages">Страница {{ news.number }} of {{ news.paginator.num_pages }}</span>
-								{% if news.has_previous %}
+							<span class="all-pages">Страница {{ news.number }} of {{ news.paginator.num_pages }}</span>
+							{% if news.has_previous %}
 								<a class="page-num"  href="?page={{ news.previous_page_number }}">{{ news.previous_page_number }}</a>
-						{% endif %}
-								<span class="current page-num">{{ news.number }}</span>
-								{% if news.has_next %}
+							{% endif %}
+							<span class="current page-num">{{ news.number }}</span>
+							{% if news.has_next %}
 								<a class="next-page"  href="?page={{ news.next_page_number }}">{{ news.next_page_number }}</a>
-						{% endif %}
-								{% if news.has_next %}
+							{% endif %}
+							{% if news.has_next %}
 								<a class="next-page"  href="?page={{ news.next_page_number }}">Следующая страница</a>
-						{% endif %}
+							{% endif %}
 						</div>
 						<!-- End Pagination -->
 

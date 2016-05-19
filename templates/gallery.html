@@ -1,0 +1,88 @@
+{% extends "main.html" %}
+
+{% block title %}
+	Галлерея
+{% endblock title%}
+
+{% block content %}
+	{% load staticfiles %}
+
+	<!-- Start Page Banner -->
+	<div class="page-banner">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<ul class="breadcrumbs">
+						<li><a href="/">Главная</a></li>
+						<li>Галлерея</li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<div class="navbar-title">
+						<h2> ГАЛЛЕРЕЯ <p>школы Capoeira de Rua</p> </h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Page Banner -->
+
+	<!-- Start Content -->
+	<div id="content">
+		<div class="container">
+			<div class="page-content">
+
+				{% for category_title, albums in categories.items %}
+					{% if albums %}
+						<div class="recent-projects">
+							<div class="h4 title">
+								<span>{{ category_title }}</span>
+							</div>
+
+							<div class="projects-carousel touch-carousel">
+
+								{% for album in albums %}
+									<!-- Start Project Item -->
+									<div class="portfolio-item item">
+										<div class="portfolio-border">
+											<!-- Start Project Thumb -->
+											<div class="portfolio-thumb">
+												<a class="lightbox" data-lightbox-type="ajax" href="#">
+													{% if album.cover %}
+														<div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
+														<img alt="" src="{{ album.cover.url }}" />
+													{% else %}
+														<img alt="" src="{% static 'images/no-image.png'%}">
+													{% endif %}
+												</a>
+											</div>
+											<!-- End Project Thumb -->
+
+											<!-- Start Project Details -->
+											<div class="portfolio-details">
+												<a href="{{ album.get_absolute_url }}">
+													<span class="h4">{{ album.title }}</span>
+												</a>
+												<br>
+												<span>{{ album.updated | date:"d E Y"}}</span>
+											</div>
+											<!-- End Project Details -->
+										</div>
+									</div>
+									<!-- End Project Item -->
+								{% endfor %}
+
+								<br>
+							</div>
+						</div>
+						<!--End Recent Projects-->
+
+						<div class="hr5" style="margin-top:45px; margin-bottom:35px;"></div>
+					{% endif %}
+				{% endfor %}
+
+			</div>
+		</div>
+	</div>
+	<!-- End Content -->
+{% endblock content %}

@@ -92,6 +92,13 @@ h1, h2, h3, h4, h5, h6 {
 	color: #444;
 }
 
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+	margin: 0;
+	color: #444;
+}
+
 h1 {
     font-size: 24px;
 	line-height: 30px;
@@ -118,6 +125,36 @@ h5 {
 }
 
 h6 {
+    font-size: 12px;
+	line-height: 18px;
+}
+
+.h1 {
+    font-size: 24px;
+	line-height: 30px;
+}
+
+.h2 {
+    font-size: 22px;
+	line-height: 28px;
+}
+
+.h3 {
+    font-size: 18px;
+	line-height: 24px;
+}
+
+.h4 {
+    font-size: 16px;
+	line-height: 22px;
+}
+
+.h5 {
+    font-size: 14px;
+	line-height: 20px;
+}
+
+.h6 {
     font-size: 12px;
 	line-height: 18px;
 }
@@ -381,7 +418,7 @@ header {
 	position: fixed;
 	top: 0;
     width: 100%;
-	z-index: 9999999;
+	z-index: 1000;
 	transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
@@ -1897,7 +1934,7 @@ input[type="submit"] {
 	color: #a94442;
 }
 
-.alert h4 {
+.alert .h4 {
 	margin-bottom: 10px;
 }
 
@@ -2535,7 +2572,7 @@ ul.icons-list li i {
 	margin-bottom: 14px;
 }
 
-.service-center .service-content h4 {
+.service-center .service-content .h4 {
 	margin-bottom: 6px;
     font-weight: 500;
 }
@@ -2544,7 +2581,7 @@ ul.icons-list li i {
 	display: inline-block;
 }
 
-.service-box h4 {
+.service-box .h4 {
 	margin-bottom: 5px;
     font-weight: 400;
 }
@@ -3044,7 +3081,7 @@ ul.icons-list li i {
 	padding-right: 5px;
 }
 
-.portfolio-item .portfolio-details h4 {
+.portfolio-item .portfolio-details .h4 {
 	transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
@@ -3396,13 +3433,13 @@ and (min-width : 551px){
 	color: #444;
 }
 
-.project-content h4 {
+.project-content .h4 {
 	margin-bottom: 12px;
 	padding-bottom: 8px;
 	border-bottom: 1px solid #eee;
 }
 
-.project-content h4 span {
+.project-content .h4 {
 	padding-bottom: 8px;
 	border-bottom: 1px solid;
 }
@@ -3416,15 +3453,15 @@ and (min-width : 551px){
 }
 
 
-.recent-projects h4.title {
+.recent-projects .h4.title {
 	margin-bottom: 16px;
 	padding-bottom: 8px;
 	border-bottom: 1px solid #eee;
 }
 
-.recent-projects h4.title span {
+.recent-projects .h4.title span {
 	padding-bottom: 8px;
-	border-bottom: 1px solid;
+	border-bottom: 2px solid;
 }
 
 .projects-carousel {
@@ -3483,7 +3520,7 @@ and (min-width : 551px){
 	opacity: 1;
 }
 
-.full-width-recent-projects .portfolio-item:hover .portfolio-details h4 {
+.full-width-recent-projects .portfolio-item:hover .portfolio-details .h4 {
 	color: rgba(255,255,255,.9);
 }
 
@@ -3861,7 +3898,7 @@ ul.post-meta li, ul.post-meta li a {
 	padding-left: 85px;
 }
 
-.blog-post .author-info h4 {
+.blog-post .author-info .h4 {
 	margin-bottom: 4px;
     font-weight: 500;
 }
@@ -3973,9 +4010,6 @@ ul.post-meta li, ul.post-meta li a {
 	margin: 0;
 }
 
-.widget .h4 {
-	margin-top: 20px; 
-}
 
 .widget-search input[type="search"] {
     position: relative;
@@ -4014,7 +4048,7 @@ ul.post-meta li, ul.post-meta li a {
 	background-color: #444;
 }
 
-.sidebar .widget h4 {
+.sidebar .widget .h4 {
 	text-transform: uppercase;
 	padding-bottom: 8px;
     margin-bottom: 16px;
@@ -4023,7 +4057,7 @@ ul.post-meta li, ul.post-meta li a {
 	position: relative;
 }
 
-.sidebar .widget h4 .head-line {
+.sidebar .widget .h4 .head-line {
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -4155,7 +4189,7 @@ footer a:hover {
     margin-bottom: 45px;
 }
 
-.footer-widget h4 {
+.footer-widget .h4 {
 	color: #eee;
 	text-transform: uppercase;
 	padding-bottom: 8px;
@@ -4165,7 +4199,7 @@ footer a:hover {
 	position: relative;
 }
 
-.footer-widget h4 .head-line {
+.footer-widget .h4 .head-line {
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -5227,7 +5261,7 @@ ul.footer-nav li a:hover {
 .switcher-box a{
 	cursor: pointer;
 }
-.switcher-box h4 {
+.switcher-box .h4 {
 	display: block;
 	height: 40px;
 	line-height: 42px;
@@ -5476,7 +5510,7 @@ ul.footer-nav li a:hover {
   overflow:hidden;
 }
 
-.services-2-icon h4 {
+.services-2-icon .h4 {
   font-family: 'Open Sans', sans-serif;
   color: #404449;
   font-size: 16px;
@@ -5667,7 +5701,7 @@ ul.footer-nav li a:hover {
   overflow:hidden;
 }
 
-.services-3-icon h4 {
+.services-3-icon .h4 {
   font-family: 'Raleway', sans-serif;
   color: #404449;
   font-size: 16px;
