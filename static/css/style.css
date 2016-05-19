@@ -3253,7 +3253,9 @@ and (min-width : 551px){
       display: block;
   }
 }
-#portfolio-list li img {width: 100%;
+#portfolio-list li img {
+  width: 100%;
+  max-height: 190px;
   -webkit-transition: all 0.75s;
   -moz-transition: all 0.75s;
   -ms-transition: all 0.75s;
