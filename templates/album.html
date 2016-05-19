@@ -52,8 +52,12 @@
 								<img src="{{ photo.img.url }}" alt="" />
 								
 								<div class="portfolio-item-content">
-									<span class="header">{{ photo.title }}</span>
-									<p class="body">{{ photo.comment }}</p>
+									{% if photo.title %}
+										<span class="header">{{ photo.title }}</span>
+									{% endif %}
+									{% if photo.comment %}
+										<p class="body">{{ photo.comment }}</p>
+									{% endif %}
 								</div>
 
 								<a class="fancybox" title="{{ photo.title }}" href="{{ photo.img.url }}" rel="gallery">

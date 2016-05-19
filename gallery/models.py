@@ -44,8 +44,7 @@ class Album(models.Model):
 		return ('album_detail', None, {'symbol_code': self.slug})
 
 class Photo(models.Model):
-	title = models.CharField(verbose_name="Заголовок фото", max_length=400)
-	slug = models.SlugField(unique=True, blank=True, null=True)
+	title = models.CharField(verbose_name="Заголовок фото", max_length=400, blank=True, null=True)
 	comment = models.TextField(verbose_name="Комментарий к фотографии", blank=True, null=True)
 	img = models.ImageField(upload_to=get_uploaded_file_name, verbose_name="Картинка")
 	album = models.ForeignKey(Album)
@@ -66,12 +65,16 @@ class Photo(models.Model):
 		return ('photoy_detail', None, {'symbol_code': self.slug})
 
 def pre_save_post(sender, instance, *args, **kwargs):
-	if detect_language(instance.title) == 'ru':
-		slug_init = slugify(translit(instance.title, reversed=True))
+	if instance.slug:
+		slug_init = instance.slug
 	else:
-		slug_init = slugify(instance.title)
+		if detect_language(instance.title) == 'ru':
+			slug_init = slugify(translit(instance.title, reversed=True))
+		else:
+			slug_init = slugify(instance.title)
+
 	slug = slug_init
-	exists = sender.objects.filter(slug=slug).exists()
+	exists = sender.objects.filter(slug=slug).exclude(id=instance.id).exists()
 	i = 0
 	while exists:
 		i += 1;
@@ -80,6 +83,3 @@ def pre_save_post(sender, instance, *args, **kwargs):
 	instance.slug = slug
 
 pre_save.connect(pre_save_post, sender=Album)
-pre_save.connect(pre_save_post, sender=Photo)
-
-

@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import Photo, Album, Category
 
 class PhotoAdmin(admin.ModelAdmin):
-	list_display = ['title', 'slug']
+	list_display = ['title']
 
 class PhotoInline(admin.StackedInline):
 	model = Photo
