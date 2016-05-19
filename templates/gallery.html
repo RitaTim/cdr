@@ -47,7 +47,7 @@
 										<div class="portfolio-border">
 											<!-- Start Project Thumb -->
 											<div class="portfolio-thumb">
-												<a class="lightbox" data-lightbox-type="ajax" href="#">
+												<a class="lightbox" data-lightbox-type="ajax" href="{{ album.get_absolute_url }}">
 													{% if album.cover %}
 														<div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
 														<img alt="" src="{{ album.cover.url }}" />
