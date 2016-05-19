@@ -18,11 +18,11 @@
 							<div class="slider-content">
 								<div class="col-md-12 text-center">
 									<h2 class="animated2">
-											<span><strong>{{ slide.title_h1 }}</strong></span>                      
+										<span><strong>{{ slide.title_h1 }}</strong></span>
 									</h2>
 									<h3 class="animated3">
-											<span><strong>{{ slide.title_h2 }}</strong></span>
-									 </h3>
+										<span><strong>{{ slide.title_h2 }}</strong></span>
+									</h3>
 									{% if slide.title_btn %}
 										<p class="animated4">
 											<a href="{% if slide.href_btn %} slide.href_btn {% else %} '#' {% endif %}" class="slider btn btn-system btn-large">{{ slide.title_btn }}</a>
@@ -64,7 +64,7 @@
 								{% endif %}
 							</div>
 							<div class="service-content">
-								<h4>{{ item.title }}</h4>
+								<span class="h4">{{ item.title }}</span>
 								<p>{{ item.description }}</p>
 							</div>
 						</div>
@@ -83,7 +83,7 @@
 				<div class="section-video-content text-center">
 
 					<!-- Start Animations Text -->
-					<h1 class="fittext wite-text uppercase tlt">
+					<span class="fittext wite-text uppercase tlt">
 						<span class="texts">
 							<span>Физические нагрузки</span>
 							<span>Заряд бодрости</span>
@@ -92,12 +92,17 @@
 							<span>Танцы</span>
 						</span>
 							вы найдете в нашей школе!
-					</h1>
+					</span>
 					<!-- End Animations Text -->
 
-					<!-- Start Buttons -->
-					<a href="#" class="btn-system btn-large">Хочу заниматься</a>
+					<div>
+						<span class="fittext wite-text uppercase">ПЕРВОЕ ЗАНЯТИЕ БЕСПЛАТНО!</span>
+					</div>
 
+					<div>
+						<!-- Start Buttons -->
+						<a href="#" class="btn-system btn-large">Записаться</a>
+					</div>
 				</div>
 				<!-- End Section Content -->
 			</div>
