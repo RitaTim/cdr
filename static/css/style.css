@@ -2546,6 +2546,22 @@ ul.icons-list li i {
 
 .service-box {
 	margin-bottom: 35px;
+	cursor:pointer;
+}
+
+.service-box :hover{
+	transform: scale(1.1,1.1);
+    transition-timing-function: ease-out;
+    transition-duration: 550ms;
+    transform: scale(1.1,1.1);
+    transition-timing-function: ease-out;
+    transition-duration: 550ms;
+    -webkit-transform: scale(1.1,1.1);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 550ms;
+    -moz-transform: scale(1.1,1.1);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 550ms;
 }
 
 .service-center {
