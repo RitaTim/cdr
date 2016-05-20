@@ -27,6 +27,7 @@ urlpatterns = [
 	url(r'^news/', include("news.urls")),
 	url(r'^filials/', include("filials.urls")),
 	url(r'^gallery/', include("gallery.urls")),
+	url(r'^about/', include("about.urls")),
 ]
 
 if settings.DEBUG:
