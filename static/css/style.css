@@ -161,7 +161,7 @@ h6 {
 
 p {
     color: #666;
-    font-size: 13px;
+    font-size: 15px;
     font-family: 'Open Sans', sans-serif;
     line-height: 22px;
     margin: 0;
@@ -2756,6 +2756,11 @@ ul.icons-list li i {
 	z-index: 9994;
 }
 
+.member-name a:hover, .member-name a:focus{
+	color:white;
+	text-decoration: none;
+}
+
 .team-member .member-photo .member-name span {
 	position: absolute;
 	top: 90%;
@@ -3562,7 +3567,7 @@ and (min-width : 551px){
 .blog-post {
     margin-bottom: 40px;
 	padding-bottom: 40px;
-	border-bottom: 1px solid #eee;
+	/*border-bottom: 1px solid #eee;*/
 }
 
 .blog-post .post-head {
@@ -5765,4 +5770,9 @@ ul.footer-nav li a:hover {
 
 .photo-in-list {
 	padding: 30px;
+}
+
+.margin-vert-20 {
+	margin-top: 20px;
+	margin-bottom: 20px;
 }

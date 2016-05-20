@@ -43,7 +43,11 @@ INSTALLED_APPS = [
     'what_you_get',
     'trainers',
     'filials',
-    'gallery'
+    'gallery',
+    'country',
+    'master',
+    'citations',
+    'about',
 ]
 
 MIDDLEWARE_CLASSES = [
