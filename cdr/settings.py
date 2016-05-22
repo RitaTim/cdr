@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'master',
     'citations',
     'about',
+    'new_student',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -140,3 +141,9 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
+
+# Email
+SERVER_EMAIL = 'capoeira-de-rua@gmail.com'
+EMAIL_HOST='localhost'
+EMAIL_PORT=1025
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

@@ -395,7 +395,6 @@ $(document).ready(function ($) {
 	});
 	
 	
-	
 	/*----------------------------------------------------*/
 	/*	Change Slider Nav Icons
 	/*----------------------------------------------------*/
@@ -699,3 +698,25 @@ $('.wpb-mobile-menu').slicknav({
   closedSymbol: '<i class="fa fa-angle-right"></i>',
   openedSymbol: '<i class="fa fa-angle-down"></i>',
 });
+
+/**
+ * Form 
+ */
+var show_form_add_student = function(contents){
+	$.ajax({
+		url : "/new-student/form/", 
+		type : "GET",
+		data : {},
+		success : function(data) {
+			$('.modal-content').html(data);
+			$('.add-student-block').modal('show');
+		},
+		error : function(err) {
+			alert("Fail GET /new-student/form/");
+		}
+	})
+};
+
+$('#add-student').on('click', function(){
+	show_form_add_student();
+})
