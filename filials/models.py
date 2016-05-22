@@ -23,3 +23,9 @@ class Filial(models.Model):
 
 	class Meta:
 		ordering = ['id',]
+
+	def __unicode__(self):
+		return self.city
+
+	def __str__(self):
+		return self.city

@@ -28,6 +28,7 @@ urlpatterns = [
 	url(r'^filials/', include("filials.urls")),
 	url(r'^gallery/', include("gallery.urls")),
 	url(r'^about/', include("about.urls")),
+	url(r'^new-student/', include("new_student.urls")),
 ]
 
 if settings.DEBUG:
