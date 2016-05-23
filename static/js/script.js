@@ -702,7 +702,8 @@ $('.wpb-mobile-menu').slicknav({
 /**
  * Form 
  */
-var show_form_add_student = function(contents){
+
+var show_form_add_student = function(){
 	$.ajax({
 		url : "/new-student/form/", 
 		type : "GET",
@@ -719,4 +720,38 @@ var show_form_add_student = function(contents){
 
 $('#add-student').on('click', function(){
 	show_form_add_student();
+})
+
+var send_form_subscribe = function(){
+	var email_obj = $('#email-sibscriber')
+	$.ajax({
+		url : "/subscribe/add/", 
+		type : "POST",
+		data : {
+			email: email_obj.val(),
+			csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+		},
+		success : function(data) {
+			$('.refuse-subscribe').html('');
+			if (data['error']){
+				var error_line = "<span class='error-text'>" + data['error']+ "</span>";
+				$('.message-box').html(error_line);
+				email_obj.addClass('empty-field');
+				email_obj.on('click', function(){
+					email_obj.removeClass('empty-field');
+				})
+			} else {
+				var msg_line = "<span class='msg-text'>" + data['message']+ "</span>";
+				$('.message-box').html(msg_line);
+			}
+		},
+		error : function(err) {
+			alert("Fail GET /subscribe/add/");
+		}
+	})
+};
+
+$('#form-subscribe').on('submit', function(event){
+	event.preventDefault();
+	send_form_subscribe();
 })

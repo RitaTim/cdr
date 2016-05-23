@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
+from .locals import *
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -49,6 +51,7 @@ INSTALLED_APPS = [
     'citations',
     'about',
     'new_student',
+    'subscribers',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -143,7 +146,5 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
 
 # Email
-SERVER_EMAIL = 'capoeira-de-rua@gmail.com'
-EMAIL_HOST='localhost'
-EMAIL_PORT=1025
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True

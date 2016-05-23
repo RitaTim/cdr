@@ -5803,3 +5803,7 @@ ul.footer-nav li a:hover {
 .error-text {
 	color: red;
 }
+
+.msg-text {
+	color: green;
+}
