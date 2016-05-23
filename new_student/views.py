@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.http.response import HttpResponse
 from django.shortcuts import render, render_to_response, redirect
 from django.core.context_processors import csrf
+from django.contrib.sites.shortcuts import get_current_site
 
 import json
 
@@ -26,7 +27,11 @@ def add_student(request):
 				phone = phone,
 				filial = filial
 			)
-			added_new_student(name, phone)
+
+			#send message admin
+			current_site = get_current_site(request)
+			added_new_student(name, phone, filial.get_city_display() , current_site.domain)
+
 			return render_to_response('success_add_student.html', {'name' : name})
 		else:
 			data['error'] = 'Проверьте корректность введенных данных'

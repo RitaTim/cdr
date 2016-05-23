@@ -8,5 +8,6 @@ def start_page(request):
 	data = {
 		"list_slider" : get_slider(request),
 		"list_what_you_get" : get_what_you_get(request),
+		"unsubscribed" : request.session.get("unsubscribed"),
 	}
 	return render(request, 'index.html', data)

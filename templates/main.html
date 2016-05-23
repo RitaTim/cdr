@@ -174,9 +174,17 @@
           <div class="col-md-3 col-xs-12">
             <div class="footer-widget mail-subscribe-widget">
               <span class="h4">В курсе всех дел</span>
-              <p>Оставьте свой e-mail, и вам будут приходить самые последние новости школы</p>
-              <form class="subscribe">
-                <input type="text" placeholder="mail@example.com">
+              {% if unsubscribed %}
+                <div class="refuse-subscribe">
+                  <span class="msg-text">Вы отказались от рассылки</span>
+                </div>
+              {% endif %}
+              <div class="message-box">
+                <p>Оставьте свой e-mail, и вам будут приходить самые последние новости школы</p>
+              </div>
+              <form action="/subscribe/add/" method="POST" class="subscribe" id="form-subscribe" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="text" placeholder="mail@example.com" id="email-sibscriber">
                 <input type="submit" class="btn-system" value="Согласен">
               </form>
             </div>

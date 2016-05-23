@@ -29,6 +29,7 @@ urlpatterns = [
 	url(r'^gallery/', include("gallery.urls")),
 	url(r'^about/', include("about.urls")),
 	url(r'^new-student/', include("new_student.urls")),
+	url(r'^subscribe/', include("subscribers.urls")),
 ]
 
 if settings.DEBUG:
