@@ -3695,7 +3695,6 @@ and (min-width : 551px){
     -o-border-radius: 2px;
 	padding: 20px 25px;
 	color: #fff;
-	margin-bottom: 10px;
 }
 
 .blog-post.quote-post .qoute-box a {
@@ -5806,4 +5805,17 @@ ul.footer-nav li a:hover {
 
 .msg-text {
 	color: green;
+}
+
+.side-menu li{
+	cursor: pointer;
+}
+
+.side-menu li.active{
+	background-color:#EEEEEE;
+	padding-left: 15px;
+}
+
+.block-article img{
+	width: 100%;
 }

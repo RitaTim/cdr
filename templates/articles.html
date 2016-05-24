@@ -1,0 +1,106 @@
+{% extends "main.html" %}
+
+{% block title %}
+	{{ title_page }}
+{% endblock title%}
+
+{% block content %}
+	{% load staticfiles %}
+		<!-- Start Page Banner -->
+		<div class="page-banner">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<ul class="breadcrumbs">
+							<li><a href="#">Главная</a></li>
+							<li>Энциклопедия</li>
+							<li>{{ title_page }}</li>
+						</ul>
+					</div>
+					<div class="col-md-6">
+						<div class="navbar-title">
+							<h2> ЭНЦИКЛОПЕДИЯ <p>школы Capoeira de Rua</p> </h2>          
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Page Banner -->
+
+		<!-- Start Content -->
+		<div id="content">
+			<div class="container">
+				<div class="row sidebar-page">
+
+					<div class="col-md-9 page-content">
+					</div>
+
+
+					<!--Sidebar-->
+					<div class="col-md-3 sidebar right-sidebar">
+
+						<!-- Search Widget -->
+						<div class="widget widget-search">
+							<form action="#">
+								<input type="search" placeholder="Поиск" />
+								<button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+							</form>
+						</div>
+
+						<!-- Categories Widget -->
+						<div class="widget widget-categories">
+							<div class="margin-bottom-20">
+								<span class="h4">{{ title_page }}</span>
+							</div>
+							<ul class="side-menu" data-section="{{ section }}">
+								{% for article in articles %}
+									<li data-id-article="{{ article.id }}">
+										<a>
+											<span class="accent-color">{{ article.period }} </span>
+											{{ article.title }}{{ article.name }}
+										</a>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+
+						<!-- Start Post -->
+						<div class="blog-post quote-post">
+							<div class="qoute-box">
+								<a href="#">
+									<h2>"{{ citation.text }}"</h2>
+									<div class="qoute-author">Местре 
+										{%if citation.master__apelido %}
+											{{ citation.master__apelido }}
+												{% else %}
+											{{citation.master__name }}
+										{% endif %}
+									</div>
+								</a>
+							</div>
+						</div>
+						<!-- End Post -->
+
+						<!-- Tags Widget -->
+						<div class="widget widget-tags">
+							<div class="margin-bottom-20">
+								<span class="h4">Теги</span>
+							</div>
+
+							<div class="tagcloud">
+								<a href="#">История капоэйры</a>
+								<a href="#">Мастера капоэйры</a>
+								<a href="#">Боевое искусство</a>
+							</div>
+						</div>
+
+					</div>
+					<!--End sidebar-->
+
+				</div>
+			</div>
+		</div>
+		<!-- End Content -->
+
+	<script type="text/javascript" src="{% static 'js/articles.js'%}"></script>
+{% endblock content %}
