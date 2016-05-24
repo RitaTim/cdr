@@ -42,7 +42,7 @@
 /*------------------------------------------*/
 body {
 	font-family: 'Open Sans', sans-serif;
-	font-size: 13px;
+	font-size: 14px;
     line-height: 21px;
 	font-weight: 300;
 	color: #666;
@@ -1496,7 +1496,7 @@ input[type="submit"] {
 }
 
 .panel-title {
-	font-size: 13px;
+	font-size: 14px;
 	font-weight: 600;
 }
 
@@ -1516,11 +1516,7 @@ input[type="submit"] {
 }
 
 .panel-title a.collapsed {
-	color: #444;
-	box-shadow: 0 0 15px rgba(0,0,0,.04) inset;
-	-o-box-shadow: 0 0 15px rgba(0,0,0,.04) inset;
-	-moz-box-shadow: 0 0 15px rgba(0,0,0,.04) inset;
-  	-webkit-box-shadow: 0 0 15px rgba(0,0,0,.04) inset;
+	color: #747474;
 }
 
 .panel-title a.collapsed:hover {
@@ -1528,7 +1524,7 @@ input[type="submit"] {
 }
 
 .panel-title a .control-icon {
-	position: absolute;
+	margin-right: 8px;
 	top: 50%;
 	right: 10px;
 	margin-top: -11px;
@@ -3584,9 +3580,7 @@ and (min-width : 551px){
 /*------------------------------------------*/
 
 .blog-post {
-    margin-bottom: 40px;
 	padding-bottom: 40px;
-	/*border-bottom: 1px solid #eee;*/
 }
 
 .blog-post .post-head {
@@ -3701,7 +3695,7 @@ and (min-width : 551px){
 	color: #999;
 }
 
-.blog-post.quote-post .qoute-box h2 {
+.blog-post.quote-post .qoute-box .h2 {
 	font-family: 'Lora', serif;
 	font-size: 18px;
 	line-height: 26px;
@@ -5818,4 +5812,10 @@ ul.footer-nav li a:hover {
 
 .block-article img{
 	width: 100%;
+}
+
+.italic-text{
+	font-family: 'Lora', serif;
+    font-style: italic;
+    color: #747474;
 }
