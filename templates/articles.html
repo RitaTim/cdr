@@ -38,15 +38,6 @@
 
 					<!--Sidebar-->
 					<div class="col-md-3 sidebar right-sidebar">
-
-						<!-- Search Widget -->
-						<div class="widget widget-search">
-							<form action="#">
-								<input type="search" placeholder="Поиск" />
-								<button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
-							</form>
-						</div>
-
 						<!-- Categories Widget -->
 						<div class="widget widget-categories">
 							<div class="margin-bottom-20">
@@ -68,7 +59,7 @@
 						<div class="blog-post quote-post">
 							<div class="qoute-box">
 								<a href="#">
-									<h2>"{{ citation.text }}"</h2>
+									<span class="h2">"{{ citation.text }}"</span>
 									<div class="qoute-author">Местре 
 										{%if citation.master__apelido %}
 											{{ citation.master__apelido }}

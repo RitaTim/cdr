@@ -146,52 +146,7 @@
 
 				<!--Sidebar-->
 				<div class="col-md-3 sidebar right-sidebar">
-
-					<div class="widget widget-contact-us">
-						<!-- Classic Heading -->
-						<span class="h4">Обратная связь<span class="head-line"></span></span>
-
-						<br>
-
-						<!-- Start Contact Form -->
-						<form role="form" class="contact-form" id="contact-form" method="post">
-							<div class="form-group">
-								<div class="controls">
-									<input type="text" placeholder="Ваше имя" name="name">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="controls">
-									<input type="email" class="email" placeholder="E-mail" name="email">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="controls">
-									<textarea rows="7" placeholder="Ващ вопрос" name="message"></textarea>
-								</div>
-							</div>
-							<button type="submit" id="submit" class="btn-system btn-large">Отправить</button>
-							<div id="success" style="color:#34495e;"></div>
-						</form>
-						<!-- End Contact Form -->
-
-					</div>
-
-					<!-- Tags Widget -->
-					<div class="widget widget-tags">
-						<span class="h4">Теги <span class="head-line"></span></span>
-						<div class="tagcloud">
-							<a href="#">Капоэйра</a>
-							<a href="#">Боевое искусство</a>
-							<a href="#">Спорт</a>
-							<a href="#">Досуг</a>
-							<a href="#">Развлечения</a>
-							<a href="#">Танцы</a>
-							<a href="#">Этническая музыка</a>
-						</div>
-					</div>
-					<!-- End Tags Widget -->
-
+					{% include "come-to-us.html" %}
 				</div>
 				<!--End sidebar-->
 

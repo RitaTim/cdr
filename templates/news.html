@@ -40,7 +40,7 @@
 								
 								<!-- Post Content -->
 								<div class="post-content">
-									<div class="post-type"><i class="fa fa-picture-o"></i></div>
+									<div class="post-type"><i class="fa fa-newspaper-o"></i></div>
 									<h2><a href="{{ new.get_absolute_url }}">{{ new.title }}</a></h2>
 									<ul class="post-meta">
 										<li>{{ new.updated | date:"d E Y" }}</li>
@@ -89,47 +89,31 @@
 						<!-- Search Widget -->
 						<div class="widget widget-search">
 							<form action="#">
-								<input type="search" placeholder="Enter Keywords..." />
+								<input type="search" placeholder="Поиск..." />
 								<button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
 							</form>
 						</div>
 
-						<!-- Categories Widget -->
-						<div class="widget widget-categories">
-							<span class="h4">Категории <span class="head-line"></span></span>
-							<ul>
-								<li>
-									<a href="#">Последние</a>
-								</li>
-								<li>
-									<a href="#">Намечающиеся мероприятия</a>
-								</li>
-								<li>
-									<a href="#">Школа в Ростове</a>
-								</li>
-								<li>
-									<a href="#">Школа в Шахтах</a>
-								</li>
-								<li>
-									<a href="#">Школа в Цымлянске</a>
-								</li>
-							</ul>
-						</div>
+						{% include "come-to-us.html" %}
 
 						<!-- Start Post -->
-				<div class="blog-post quote-post">
-						<div class="qoute-box">
-							<a href="#">
-								<h2>"Капоэйра свободна, это полностью свободный спорт, каждый движется и развивается согласно своим возможностям"</h2>
-								<div class="qoute-author">Местре Суассуна</div>
-							</a>
+						<div class="blog-post quote-post">
+							<div class="qoute-box">
+								<span class="h2">"{{ citation.text }}"</span>
+								<div class="qoute-author">Местре 
+									{%if citation.master__apelido %}
+										{{ citation.master__apelido }}
+											{% else %}
+										{{citation.master__name }}
+									{% endif %}
+								</div>
+							</div>
 						</div>
-				</div>
-				<!-- End Post -->
+						<!-- End Post -->
 
 						<!-- Tags Widget -->
 						<div class="widget widget-tags">
-							<h4>Теги <span class="head-line"></span></h4>
+							<span class="h4">Теги </span>
 							<div class="tagcloud">
 								<a href="#">Секция капоэйры</a>
 								<a href="#">Боевое искусство</a>
