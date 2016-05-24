@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'about',
     'new_student',
     'subscribers',
+    'history_articles',
 ]
 
 MIDDLEWARE_CLASSES = [

@@ -30,6 +30,7 @@ urlpatterns = [
 	url(r'^about/', include("about.urls")),
 	url(r'^new-student/', include("new_student.urls")),
 	url(r'^subscribe/', include("subscribers.urls")),
+	url(r'^encyclopedia/', include("history_articles.urls")),
 ]
 
 if settings.DEBUG:

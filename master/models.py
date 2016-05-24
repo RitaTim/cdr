@@ -13,8 +13,8 @@ class Master(models.Model):
 	photo = models.ImageField(upload_to=get_uploaded_file_name, verbose_name="Фото", blank=True, null=True)
 	cordao = models.CharField(verbose_name="Шнур", max_length=400, blank=True, null=True)
 	biography = models.TextField(verbose_name="Биография", blank=True, null=True)
-	date_birth = models.DateTimeField(verbose_name="Дата рожения", blank=True, null=True)
-	date_death = models.DateTimeField(verbose_name="Дата смерти", blank=True, null=True)
+	date_birth = models.DateField(verbose_name="Дата рожения", blank=True, null=True)
+	date_death = models.DateField(verbose_name="Дата смерти", blank=True, null=True)
 
 	updated = models.DateTimeField(verbose_name="Данные обновлены", auto_now=True, auto_now_add=False)
 	created = models.DateTimeField(verbose_name="Данные созданы", auto_now=False, auto_now_add=True)
