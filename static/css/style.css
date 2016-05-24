@@ -1797,7 +1797,7 @@ input[type="submit"] {
 .btn-system {
 	text-align: center;
 	display: inline-block;
-	color: #fff;
+	color: #fff !important;
 	margin-right: 5px;
     font-size: 12px;
     font-family: 'Open Sans', sans-serif;
@@ -3176,10 +3176,6 @@ ul.icons-list li i {
 }
 .campaign img{
     max-width:100%;
-}
-
-.text-center {
-    margin-bottom: 35px;
 }
 
 #portfolio-list {
@@ -5818,4 +5814,8 @@ ul.footer-nav li a:hover {
 	font-family: 'Lora', serif;
     font-style: italic;
     color: #747474;
+}
+
+.block-inline-tabs{
+	margin-top: 36px;
 }

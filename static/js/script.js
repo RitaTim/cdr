@@ -718,7 +718,7 @@ var show_form_add_student = function(){
 	})
 };
 
-$('#add-student').on('click', function(){
+$('.add-student').on('click', function(){
 	show_form_add_student();
 })
 
