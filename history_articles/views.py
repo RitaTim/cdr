@@ -1,8 +1,10 @@
 from django.shortcuts import render, render_to_response, get_object_or_404
+from django.template import RequestContext
 
 from .models import Article
 from master.models import Master
 from citations.models import Citation
+
 
 def show_articles(request):
 	articles = Article.objects.values('id', 'title', 'period')
@@ -12,7 +14,7 @@ def show_articles(request):
 		'section':  "history",
 		'title_page':  "История капоэйры",
 	}
-	return render_to_response("articles.html", args)
+	return render_to_response("articles.html", args, RequestContext(request))
 
 def show_masters(request):
 	articles = Master.objects.values('id', 'name', 'apelido')
@@ -22,7 +24,7 @@ def show_masters(request):
 		'section': "masters",
 		'title_page': "История капоэйры",
 	}
-	return render_to_response("articles.html", args)
+	return render_to_response("articles.html", args, RequestContext(request))
 
 def get_article(request, id_article=None):
 	args = {
