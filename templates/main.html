@@ -5,6 +5,7 @@
 
 <head>
   {% load staticfiles %}
+  {% load sitetree %}
   <!-- Define Charset -->
   <meta charset="utf-8">
 
@@ -100,66 +101,13 @@
               </div>
             </div>
             <!-- End Search -->
-            <!-- Start Navigation List -->
-            <ul class="nav navbar-nav navbar-right">
-              <li>
-                <a class="active" href="/">Главная</a>
-              </li>
-              <li>
-                <a href="/about/">Школа</a>
-              </li>
-              <li>
-                <a href="/filials/">Филиалы</a>
-              </li>              
-              <li>
-                <a href="/news/">Новости</a>
-              </li>
-              <li>
-                <a href="/gallery/">Галлерея</a>
-              </li>
-              <li>
-                <a href="/encyclopedia/">Энциклопедия</a>
-                <ul class="dropdown">
-                  <li><a href="/encyclopedia/history/">История</a></li>
-                  <li><a href="/encyclopedia/masters/">Мастера</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="/academy/">Академия</a>
-              </li>
-            </ul>
-            <!-- End Navigation List -->
+           
+            {% sitetree_menu from "main-menu" include "trunk" template "main_menu.html" %}
           </div>
         </div>
 
         <!-- Mobile Menu Start -->
-        <ul class="wpb-mobile-menu">
-           <li>
-              <a class="active" href="/">Главная</a>
-            </li>
-            <li>
-              <a href="/about/">Школа</a>
-            </li>
-            <li>
-              <a href="/filials/">Филиалы</a>
-            </li>              
-            <li>
-              <a href="/news/">Новости</a>
-            </li>
-            <li>
-              <a href="/gallery/">Галлерея</a>
-            </li>
-            <li>
-                <a href="/encyclopedia/">Энциклопедия</a>
-                <ul class="dropdown">
-                  <li><a href="/encyclopedia/history/">История</a></li>
-                  <li><a href="/encyclopedia/masters/">Мастера</a></li>
-                </ul>
-            </li>
-            <li>
-              <a href="/academy/">Академия</a>
-            </li>
-        </ul>
+        {% sitetree_menu from "main-menu" include "trunk" template "main_menu_sm.html" %}
         <!-- Mobile Menu End -->
 
       </div>
@@ -167,6 +115,8 @@
 
     </header>
     <!-- End Header Section -->
+
+
 	
 	{% block content %}
 	{% endblock content%}
