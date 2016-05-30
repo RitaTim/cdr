@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+from citations.models import Citation
 from .forms import NewForm
 from .models import New
 
@@ -22,12 +23,14 @@ def get_news(request):
 		'news' : query,
 		'page_var': 'page',
 		'paginator': paginator,
+		'citation': Citation.objects.values('master__apelido', 'master__name', 'text').order_by('?')[:1].get(),
 	}
 	return render(request, 'news.html', data)
 
 def get_new(request, symbol_code=None):
 	data = {
-		'new': get_object_or_404(New, slug=symbol_code)
+		'new': get_object_or_404(New, slug=symbol_code),
+		'citation': Citation.objects.values('master__apelido', 'master__name', 'text').order_by('?')[:1].get(),
 	}
 	return render(request, 'new.html', data)
 

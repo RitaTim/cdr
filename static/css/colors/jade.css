@@ -267,11 +267,24 @@ ul.icons-list li i {
 	color: #388707;
 }
 
+.portfolio-item:hover .portfolio-details .h4 {
+	color: #388707;
+}
+
 .project-content h4 span {
 	border-bottom-color: #388707;
 }
 
-.recent-projects h4.title span {
+.recent-projects .h4.title span {
+	border-bottom-color: #388707;
+	font-size: 18px;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+.project-content .h4 span{
 	border-bottom-color: #388707;
 }
 
@@ -330,7 +343,7 @@ ul.post-meta li a:hover {
 
 
 #portfolio-list li .portfolio-item-content {
-    background: rgba(11, 181, 134, 0.9);
+    background: rgba(56, 135, 7, 0.47)
 }
 
 .services-3-icon i {

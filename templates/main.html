@@ -5,6 +5,7 @@
 
 <head>
   {% load staticfiles %}
+  {% load sitetree %}
   <!-- Define Charset -->
   <meta charset="utf-8">
 
@@ -37,6 +38,8 @@
   <!-- Color CSS Styles  -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/colors/jade.css'%}" title="jade" media="screen" />
 
+  <link rel="stylesheet" type="text/css" href="{% static 'css/jquery.fancybox.css'%}" title="jade" media="screen" />
+
   <!-- Margo JS  -->
   <script type="text/javascript" src="{% static 'js/jquery-2.1.4.min.js'%}"></script>
   <script type="text/javascript" src="{% static 'js/jquery.migrate.js'%}"></script>
@@ -44,7 +47,7 @@
   <script type="text/javascript" src="{% static 'asset/js/bootstrap.min.js'%}"></script>
   <script type="text/javascript" src="{% static 'js/jquery.fitvids.js'%}"></script>
   <script type="text/javascript" src="{% static 'js/owl.carousel.min.js'%}"></script>
-  <script type="text/javascript" src="{% static 'js/nivo-lightbox.min.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.fancybox.pack.js'%}"></script>
   <script type="text/javascript" src="{% static 'js/jquery.isotope.min.js'%}"></script>
   <script type="text/javascript" src="{% static 'js/jquery.appear.js'%}"></script>
   <script type="text/javascript" src="{% static 'js/count-to.js'%}"></script>
@@ -53,8 +56,8 @@
   <script type="text/javascript" src="{% static 'js/jquery.easypiechart.min.js'%}"></script>
   <script type="text/javascript" src="{% static 'js/jquery.nicescroll.min.js'%}"></script>
   <script type="text/javascript" src="{% static 'js/jquery.parallax.js'%}"></script>
-  <script type="text/javascript" src="{% static 'js/mediaelement-and-player.js'%}"></script>
   <script type="text/javascript" src="{% static 'js/jquery.slicknav.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.maskedinput.js'%}"></script>
 
     <!-- Basic -->
   	<title>
@@ -83,7 +86,7 @@
               <i class="fa fa-bars"></i>
             </button>
             <!-- End Toggle Nav Link For Mobiles -->
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/">
               <img alt="" src="{% static 'images/logo-min.png'%}">
             </a>
           </div>
@@ -98,58 +101,13 @@
               </div>
             </div>
             <!-- End Search -->
-            <!-- Start Navigation List -->
-            <ul class="nav navbar-nav navbar-right">
-              <li>
-                <a class="active" href="/">Главная</a>
-              </li>
-              <li>
-                <a href="#">Школа</a>
-              </li>
-              <li>
-                <a href="#">Филиалы</a>
-              </li>              
-              <li>
-                <a href="#">Новости</a>
-              </li>
-              <li>
-                <a href="#">Расписание</a>
-              </li>
-              <li>
-                <a href="#">Галлерея</a>
-              </li>
-              <li>
-                <a href="#">Академия</a>
-              </li>
-            </ul>
-            <!-- End Navigation List -->
+           
+            {% sitetree_menu from "main-menu" include "trunk" template "main_menu.html" %}
           </div>
         </div>
 
         <!-- Mobile Menu Start -->
-        <ul class="wpb-mobile-menu">
-           <li>
-              <a class="active" href="/">Главная</a>
-            </li>
-            <li>
-              <a href="#">Школа</a>
-            </li>
-            <li>
-              <a href="#">Филиалы</a>
-            </li>              
-            <li>
-              <a href="#">Новости</a>
-            </li>
-            <li>
-              <a href="#">Расписание</a>
-            </li>
-            <li>
-              <a href="#">Галлерея</a>
-            </li>
-            <li>
-              <a href="#">Академия</a>
-            </li>
-        </ul>
+        {% sitetree_menu from "main-menu" include "trunk" template "main_menu_sm.html" %}
         <!-- Mobile Menu End -->
 
       </div>
@@ -157,6 +115,8 @@
 
     </header>
     <!-- End Header Section -->
+
+
 	
 	{% block content %}
 	{% endblock content%}
@@ -170,10 +130,18 @@
           <!-- Start Subscribe & Social Links Widget -->
           <div class="col-md-3 col-xs-12">
             <div class="footer-widget mail-subscribe-widget">
-              <span class="h4">В курсе всех дел<span class="head-line"></span></span>
-              <p>Оставьте свой e-mail, и вам будут приходить самые последние новости школы</p>
-              <form class="subscribe">
-                <input type="text" placeholder="mail@example.com">
+              <span class="h4">В курсе всех дел</span>
+              {% if unsubscribed %}
+                <div class="refuse-subscribe">
+                  <span class="msg-text">Вы отказались от рассылки</span>
+                </div>
+              {% endif %}
+              <div class="message-box">
+                <p>Оставьте свой e-mail, и вам будут приходить самые последние новости школы</p>
+              </div>
+              <form action="/subscribe/add/" method="POST" class="subscribe" id="form-subscribe" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="text" placeholder="mail@example.com" id="email-sibscriber">
                 <input type="submit" class="btn-system" value="Согласен">
               </form>
             </div>
@@ -182,7 +150,7 @@
           
           <div class="col-md-3 col-xs-12">
             <div class="footer-widget social-widget">
-              <span class="h4">Мы в соцсетях<span class="head-line"></span></span>
+              <span class="h4">Мы в соцсетях</span>
               <ul class="social-icons">
                 <li>
                   <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
@@ -220,8 +188,8 @@
           <!-- End Contact Widget -->
           
           <div class="col-md-3 col-xs-12">
-            <div class="footer-widget contact-widget">
-              <span class="h4"><img src="{% static 'images/logo-min.png' %}" class="img-responsive" alt="Footer Logo" /></span>
+            <div class="footer-widget text-center">
+              <span class="h4"><img src="{% static 'images/logo-min.png' %}" alt="Footer Logo" /></span>
             </div>
           </div>
 
@@ -237,7 +205,7 @@
             <!-- .col-md-6 -->
             <div class="col-md-6">
               <ul class="footer-nav">
-                <li><a href="#">Контакты</a>
+                <li><a href="/filials/">Контакты</a>
                 </li>
               </ul>
             </div>
@@ -264,8 +232,19 @@
       <div class="dot2"></div>
     </div>
   </div>
-
+  
   <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+
+
+
+
+<div class="modal fade add-student-form" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+
 
 </body>
 

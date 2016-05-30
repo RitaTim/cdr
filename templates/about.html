@@ -1,0 +1,104 @@
+{% extends "main.html" %}
+
+{% block title %}
+	О школе Capoeira de Rua
+{% endblock title%}
+
+{% block content %}
+	{% load staticfiles %}
+	<!-- Start Page Banner -->
+	<div class="page-banner">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<ul class="breadcrumbs">
+						<li><a href="#">Главная</a></li>
+						<li>О школе</li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<div class="navbar-title">
+						<h2> О ШКОЛЕ <p> Capoeira de Rua</p> </h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Page Banner -->
+
+	<!-- Start Content -->
+	<div id="content">
+		<div class="container">
+			<div class="page-content">
+
+				<div class="row">
+					<div class="col-md-6">
+						<h4 class="classic-title"><span>{{ data.title }}</span></h4>
+						<p>{{ data.text|safe }}</p>
+					</div>
+
+					<div class="col-md-6">
+						<div class="item">
+							<img alt="" src="{{ data.img.url }}">
+						</div>
+
+						<div class="text-center margin-vert-20">
+							<a href="#" data-toggle="modal" data-target=".add-student-form" class="add-student btn-system btn-large">ПРИСОЕДИНЯЙСЯ К НАШЕЙ КОМАНДЕ!</a>
+						</div>
+
+						<div class="blog-post quote-post">
+							<div class="qoute-box">
+								<a href="#">
+									<span class="h2">"{{ citation.text }}"</span>
+									<div class="qoute-author">Местре {{ citation.master }}</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Classic Heading -->
+				<h4 class="classic-title"><span>Инструктора</span></h4>
+
+				<!-- Start Team Members -->
+				<div class="row">
+					{% for trainer in trainers %}
+						<!-- Start Memebr 1 -->
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="team-member">
+								<!-- Memebr Photo, Name & Position -->
+								<div class="member-photo">
+									{% if trainer.photo %}
+										<img alt="" src="{{ trainer.photo.url }}" />
+									{% else %}
+										<img alt="" src="{% static 'images/cap.png' %}" />
+									{% endif %}
+									<div class="member-name">
+										<a data-toggle="collapse" data-parent="#toggle" href="#collapse-{{ trainer.id }}" aria-expanded="false" class="collapsed">
+											{{ trainer }} <span>{{ trainer.status }}</span>
+										</a>
+									</div>
+								</div>
+								<!-- Memebr Words -->
+								<div id="collapse-{{ trainer.id }}" class="member-info panel-collapse collapse" aria-expanded="false">
+									<p>{{ trainer.biography }}</p>
+								</div>
+							</div>
+						</div>
+						<!-- End Memebr 1 -->
+					{% endfor %}
+				</div>
+				<!-- End Team Members -->
+
+				<!-- Divider -->
+				<div class="hr5" style="margin-bottom:50px;"></div>
+
+				{% include 'improve_skills.html'%}
+
+			</div><!--page-content-->
+		</div><!--container-->
+	</div>
+	<!-- End content -->
+
+	{% include 'parallax_block.html'%}
+{% endblock content %}
