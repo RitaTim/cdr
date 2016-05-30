@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	var load_map = function(map_id){
-		var posLatitude = parseFloat($('#' + map_id).data('position-latitude'));
-		var posLongitude = parseFloat($('#' + map_id).data('position-longitude'));
+		var posLatitude = parseFloat($('#' + map_id).data('position-latitude').replace(",", "."));
+		var posLongitude = parseFloat($('#' + map_id).data('position-longitude').replace(",", "."));
 		var metka_url = $('#' + map_id).data('marker-img');
 		var metka_title = $('#' + map_id).data('marker-title');
 
