@@ -6,7 +6,8 @@ def get_uploaded_file_name(instance, filename):
 
 class Slider(models.Model):
 	name = models.CharField(verbose_name="Название", max_length=30, blank=True, null=True)
-	#img = models.FileField(verbose_name="Картинка", upload_to=get_uploaded_file_name)
+	is_main = models.BooleanField(verbose_name="Главный слайд", default=False)
+	img = models.ImageField(upload_to=get_uploaded_file_name, verbose_name="Картинка")
 	title_h1 = models.CharField(verbose_name="Главный заголовок", max_length=30, blank=True, null=True)
 	title_h2 = models.CharField(verbose_name="Заголовок второго уровня", max_length=50, blank=True, null=True)
 	title_btn = models.CharField(verbose_name="Название кнопки", max_length=10, blank=True, null=True)
@@ -16,3 +17,6 @@ class Slider(models.Model):
 
 	def __str__(self):
 		return self.name
+
+	class Meta:
+		ordering = ['-updated', '-created']
