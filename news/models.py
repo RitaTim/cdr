@@ -29,14 +29,21 @@ class New(models.Model):
 		ordering = ['-updated', '-created']
 
 def pre_save_post(sender, instance, *args, **kwargs):
-	if detect_language(instance.title) == 'ru':
-		slug = slugify(translit(instance.title, reversed=True))
+	if instance.slug:
+		slug_init = instance.slug
 	else:
-		slug = slugify(instance.title)
-	exists = New.objects.filter(slug=slug).exists()
-	if exists:
-		slug = "%s-%s" % (slug, instance.id)
+		if detect_language(instance.title) == 'ru':
+			slug_init = slugify(translit(instance.title, reversed=True))
+		else:
+			slug_init = slugify(instance.title)
 
+	slug = slug_init
+	exists = sender.objects.filter(slug=slug).exclude(id=instance.id).exists()
+	i = 0
+	while exists:
+		i += 1;
+		slug = "%s-%s" % (slug_init, i)
+		exists = sender.objects.filter(slug=slug).exists()
 	instance.slug = slug
 
 pre_save.connect(pre_save_post, sender=New)
