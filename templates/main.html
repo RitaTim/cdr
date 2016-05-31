@@ -86,9 +86,11 @@
               <i class="fa fa-bars"></i>
             </button>
             <!-- End Toggle Nav Link For Mobiles -->
-            <a class="navbar-brand" href="/">
-              <img alt="" src="{% static 'images/logo-min.png'%}">
-            </a>
+            <div class="logo-container">
+              <a class="navbar-brand" href="/">
+                <img alt="" src="{% static 'images/logo-min.png'%}">
+              </a>
+            </div>
           </div>
           <div class="navbar-collapse collapse">
             <!-- Stat Search -->
@@ -137,7 +139,7 @@
                 </div>
               {% endif %}
               <div class="message-box">
-                <p>Оставьте свой e-mail, и вам будут приходить самые последние новости школы</p>
+                <p>Оставьте свой e-mail, чтобы получать последние новости школы</p>
               </div>
               <form action="/subscribe/add/" method="POST" class="subscribe" id="form-subscribe" enctype="multipart/form-data">
                 {% csrf_token %}
@@ -148,46 +150,27 @@
           </div>
           <!-- .col-md-3 -->
           
-          <div class="col-md-3 col-xs-12">
-            <div class="footer-widget social-widget">
-              <span class="h4">Мы в соцсетях</span>
-              <ul class="social-icons">
-                <li>
-                  <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
-                </li>
-                <li>
-                  <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li>
-                  <a class="instgram" href="#"><i class="fa fa-instagram"></i></a>
-                </li>
-                <li>
-                  <a class="vimeo" href="#"><i class="fa fa-vimeo-square"></i></a>
-                </li>
-                <li>
-                  <a class="skype" href="#"><i class="fa fa-skype"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- .col-md-3 -->
-          <!-- End Subscribe & Social Links Widget -->
 
+          <div class="col-md-3 col-xs-12">
+              {% include "social_contacts.html" %}
+          </div>
 
           <!-- Start Contact Widget -->
-          <div class="col-md-3 col-xs-12">
+          <div class="col-md-4 col-xs-12">
             <div class="footer-widget contact-widget">
               <span class="h4">Вы можете связаться с нами в любое время</span>
               <ul>
                 <li><span>Номер телефона:</span> 8(988)890-36-05</li>
-                <li><span>Email:</span> capoeiraderua@mail.ru</li>
+                <li><span>Email:</span> <a href="mailto:capoeiraderua.forever@gmail.com"> capoeiraderua.forever@gmail.com</a></li>
               </ul>
             </div>
           </div>
           <!-- .col-md-3 -->
           <!-- End Contact Widget -->
           
-          <div class="col-md-3 col-xs-12">
+
+
+          <div class="col-md-2 col-xs-12">
             <div class="footer-widget text-center">
               <span class="h4"><img src="{% static 'images/logo-min.png' %}" alt="Footer Logo" /></span>
             </div>

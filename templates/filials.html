@@ -61,14 +61,14 @@
 								<br>
 
 								<div class="row">
-									<div class="col-md-4">
+									<div class="col-md-5">
 										<!-- Classic Heading -->
 										<p><span class="h4 classic-title">Контакты</span></p>
 
 										<!-- Info - Icons List -->
 										<ul class="icons-list">
 											<li><i class="fa fa-globe"></i> <strong>Адресс:</strong> {{ filial.address }}</li>
-											<li><i class="fa fa-envelope-o"></i> <strong>E-mail:</strong> {{ filial.email }}</li>
+											<li><i class="fa fa-envelope-o"></i> <strong>E-mail:</strong> <a href="mailto:{{ filial.email }}">{{ filial.email }}</a></li>
 											<li><i class="fa fa-mobile"></i> <strong>Телефон:</strong> {{ filial.phone }}</li>
 										</ul>
 									</div>
@@ -84,7 +84,7 @@
 										{% endif %}
 									</div>
 
-									<div class="col-md-4">
+									<div class="col-md-3">
 										<p><span class="h4 classic-title">Расписание (дети)</span></p>
 										{% if filial.timetable_children %}
 											{{ filial.timetable_children|safe }}
@@ -146,6 +146,8 @@
 				<!--Sidebar-->
 				<div class="col-md-3 sidebar right-sidebar">
 					{% include "come-to-us.html" %}
+
+					{% include "tags.html" %}
 				</div>
 				<!--End sidebar-->
 
