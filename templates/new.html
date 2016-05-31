@@ -40,7 +40,7 @@
 							<ul class="post-meta">
 								<li>{{ new.updated }}</li>
 							</ul>
-							<p>{{ new.detail_text }}</p>
+							<p>{{ new.detail_text | safe}}</p>
 
 
 							{% if new.image %}
