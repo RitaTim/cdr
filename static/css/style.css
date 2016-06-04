@@ -625,6 +625,9 @@ ul.social-list li:last-child a i {
     -o-transition: all 0.3s ease-in-out;
 }
 
+.navbar-brand {
+  padding-top: 0px !important;
+}
 
 /* Для небольших устройств (смартфоны) */
 .navbar-brand img {
@@ -648,8 +651,18 @@ ul.social-list li:last-child a i {
     -o-transition: all 0.4s ease-in-out;
 }
 
+/* Для небольших устройств (смартфоны) */
 .navbar-default .navbar-nav > li {
-    margin-left: 6px;
+    margin-left: -15px !important;
+}
+
+
+/* Для больших устройств (ноуты, пк) */
+@media (min-width: 1240px) {
+.navbar-default .navbar-nav > li {
+    margin-left: 6px !important;
+}
+
 }
 
 .navbar-default .navbar-nav > li:first-child {
@@ -1098,7 +1111,7 @@ ul.social-list li:last-child a i {
 
 ul.breadcrumbs {
     float: left;
-	margin-top: 28px;
+	margin-top: 30px;
 }
 
 .no-subtitle ul.breadcrumbs {
@@ -5778,12 +5791,19 @@ ul.footer-nav li a:hover {
 }
 
 .navbar-title{
+	float: none;
+}
+
+/* Для больших устройств (ноуты, пк) */
+@media (min-width: 990px) {
+.navbar-title{
 	float: right;
 }
 
 .navbar-title h2{
 	float: right;
 	text-align: right;
+}
 }
 
 .image-in-list {
