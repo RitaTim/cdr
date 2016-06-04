@@ -90,6 +90,7 @@
 }
 .slicknav_menu ul{
   background: #fff;
+  padding-left: 10px;
 }
   .slicknav_menu * {
     box-sizing: border-box; }
@@ -101,7 +102,7 @@
 .slicknav_btn {
   border: 1px solid;
   border-radius: 0;
-  margin: 16px 15px;
+  margin: 25px 15px;
   -webkit-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
