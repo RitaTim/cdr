@@ -625,6 +625,7 @@ ul.social-list li:last-child a i {
     -o-transition: all 0.3s ease-in-out;
 }
 
+
 .navbar-brand {
   padding-top: 0px !important;
 }
@@ -635,7 +636,7 @@ ul.social-list li:last-child a i {
 }
 
 /* Для больших устройств (ноуты, пк) */
-@media (min-width: 1090px) {
+@media (min-width: 991px) {
   .navbar-brand img {
     max-width: 150px;
   }
@@ -653,14 +654,14 @@ ul.social-list li:last-child a i {
 
 /* Для небольших устройств (смартфоны) */
 .navbar-default .navbar-nav > li {
-    margin-left: -15px !important;
+    margin-left: -15px;
 }
 
 
 /* Для больших устройств (ноуты, пк) */
-@media (min-width: 1240px) {
+@media (min-width: 991px) {
 .navbar-default .navbar-nav > li {
-    margin-left: 6px !important;
+    margin-left: 6px;
 }
 
 }
