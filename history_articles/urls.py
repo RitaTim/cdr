@@ -7,9 +7,9 @@ from .views import (
 )
 
 urlpatterns = [
-	url(r'^$', show_articles),
-	url(r'^history/$', show_articles),
-	url(r'^masters/$', show_masters),
+	url(r'^$', show_articles, name="encyclopedia"),
+	url(r'^history/$', show_articles, name="history"),
+	url(r'^masters/$', show_masters, name="masters"),
 	url(r'^history/(?P<id_article>[0-9]+)/$', get_article),
 	url(r'^masters/(?P<id_article>[0-9]+)/$', get_master),
 ]

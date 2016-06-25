@@ -1,5 +1,13 @@
 {% extends "main.html" %}
 
+{% block meta_description %}
+	Галерея школы капоэйры Capoeira de Rua. События школы капоэйры в Ростове. Фото группы Capoeira de Rua
+{% endblock %}
+
+{% block meta_keywords %}
+	альбом школы капоэйры, мероприятие школы капоэйры, фото группы capoeira de rua
+{% endblock %}
+
 {% block title %}
 	Галлерея
 {% endblock title%}
@@ -19,7 +27,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="navbar-title">
-						<h2> ГАЛЛЕРЕЯ <p>школы Capoeira de Rua</p> </h2>
+						<h1> ГАЛЛЕРЕЯ <p>школы Capoeira de Rua</p> </h1>
 					</div>
 				</div>
 			</div>
@@ -50,9 +58,9 @@
 												<a class="lightbox" data-lightbox-type="ajax" href="{{ album.get_absolute_url }}">
 													{% if album.cover %}
 														<div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-														<img alt="" src="{{ album.cover.url }}" />
+														<img alt="{{ album.title }}" src="{{ album.cover.url }}" />
 													{% else %}
-														<img alt="" src="{% static 'images/no-image.png'%}">
+														<img alt="{{ album.title }}" src="{% static 'images/no-image.png'%}">
 													{% endif %}
 												</a>
 											</div>

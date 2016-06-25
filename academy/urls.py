@@ -4,5 +4,5 @@ from .views import (
 )
 
 urlpatterns = [
-	url('^$', show_page),
+	url('^$', show_page, name="academy"),
 ]

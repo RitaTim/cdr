@@ -1,5 +1,13 @@
 {% extends "main.html" %}
 
+{% block meta_description %}
+	Новости школы капоэйры Capoeira de Rua. События и мероприятия группы Capoeira de Rua
+{% endblock %}
+
+{% block meta_keywords %}
+	новость школы Capoeira de Rua, бесплатное занятие по капоэйре, события школы кпоэйры
+{% endblock %}
+
 {% block title %}
 	Новости
 {% endblock title%}
@@ -17,7 +25,7 @@
 					</div>
 					<div class="col-md-6">
 						<div class="navbar-title">
-							<h2> НОВОСТИ <p>школы Capoeira de Rua</p> </h2>          
+							<h1> НОВОСТИ <p>школы Capoeira de Rua</p> </h1>          
 						</div>
 					</div>
 				</div>
@@ -50,7 +58,7 @@
 									{% if new.image %}
 									<div>
 											<a class="lightbox" title="This is an image title" href="{{ new.image.url }}">
-												<img alt="" class="image-in-list" src="{{ new.image.url }}">
+												<img alt="{{ new.title }}" class="image-in-list" src="{{ new.image.url }}">
 											</a>
 									</div>
 									{% endif %}

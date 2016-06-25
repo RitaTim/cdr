@@ -1,5 +1,13 @@
 {% extends "main.html" %}
 
+{% block meta_description %}
+	Обучение капоэйре онлайн в академии Capoeira de Rua. Базовые техника, ритмы и танцы в капоэйре
+{% endblock %}
+
+{% block meta_keywords %}
+	капоэйра онлайн, базовая техника капоэйры, музыка в капоэйре, урок по бразильской самбe, академия capoeira de rua
+{% endblock %}
+
 {% load staticfiles %}
 
 {% block title %}
@@ -19,7 +27,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="navbar-title">
-					<h2> АКАДЕМИЯ <p>школы Capoeira de Rua</p></h2>
+					<h1> АКАДЕМИЯ <p>школы Capoeira de Rua</p></h1>
 					</div>
 				</div>
 			</div>
@@ -91,7 +99,7 @@
 										</div>
 
 										<div class="col-md-8 text-center">
-											<img src="{{ section.img.url }}" title="{{ section.description }}">
+											<img src="{{ section.img.url }}" title="{{ section.description }}" alt="{{ section.title }}">
 										</div>
 									</div><!-- col-md-12 -->
 								</div><!-- row -->
