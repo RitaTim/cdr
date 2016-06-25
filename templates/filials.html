@@ -1,5 +1,13 @@
 {% extends "main.html" %}
 
+{% block meta_description %}
+	Филиалы школы капоэйры Capoeira de Rua. Запишитесь на занятие по капоэйре. Тел: 8(988)890-36-05
+{% endblock %}
+
+{% block meta_keywords %}
+	расписание в школе капоэйры, адрес школы капоэйры, филиал школы капоэйры, инструктор школы капоэйры, monitor abelha
+{% endblock %}
+
 {% load staticfiles %}
 
 {% block title %}
@@ -21,7 +29,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="navbar-title">
-					<h2> ФИЛИАЛЫ <p>школы Capoeira de Rua</p></h2>
+					<h1> ФИЛИАЛЫ <p>школы Capoeira de Rua</p></h1>
 					</div>
 				</div>
 			</div>
@@ -110,10 +118,10 @@
 												<div class="photo-in-list">
 													{% if trainer.photo %}
 													<a class="fancybox" title="{{ trainer.status }}" href="{{ trainer.photo.url }}">
-														<img alt="" src="{{ trainer.photo.url }}" />
+														<img alt="{{ trainer.status }} {{ trainer}}" src="{{ trainer.photo.url }}" />
 													</a>
 													{% else %}
-														<img alt="" src="{% static 'images/cap.png' %}" />
+														<img alt="{{ trainer.status }} {{ trainer}}" src="{% static 'images/cap.png' %}" />
 													{% endif %}
 												</div>
 												<div class="text-center">

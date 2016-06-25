@@ -1101,7 +1101,7 @@ ul.social-list li:last-child a i {
 	border-bottom: 1px solid #eee;
 }
 
-.page-banner h2 {
+.page-banner h1 {
 	font-weight: 500;
 	/*text-transform: uppercase;*/
 }
@@ -5801,7 +5801,7 @@ ul.footer-nav li a:hover {
 	float: right;
 }
 
-.navbar-title h2{
+.navbar-title h1{
 	float: right;
 	text-align: right;
 }

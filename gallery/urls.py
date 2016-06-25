@@ -5,6 +5,6 @@ from .views import (
 )
 
 urlpatterns = [
-	url(r'^$', get_albums),
+	url(r'^$', get_albums, name='gallery'),
 	url(r'^(?P<symbol_code>[a-z0-9-_]+)/$', get_album, name="album_detail"),
 ]

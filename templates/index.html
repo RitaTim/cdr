@@ -1,5 +1,13 @@
 {% extends 'main.html' %}
 
+{% block meta_description %}
+	Capoeira de Rua школа бразильского боевого искусства в Ростове-на-Дону, Шахтах, Цимлянске
+{% endblock %}
+
+{% block meta_keywords %}
+	школа капоэйры, капоэйра боевое искусство, записаться в школу капоэйры, группа сapoeira de rua, португальский язык
+{% endblock %}
+
 {% block title %}
 	Capoeira de Rua - школа капоэйры, бразильского боевого искусства
 {% endblock title%}
@@ -14,7 +22,7 @@
 				<div class="carousel-inner">
 					{% for slide in list_slider %}
 						 <div class="item {% if slide.is_main %} active {% endif %}">
-							<img class="img-responsive" src="{{ slide.img.url }}" alt="slider">
+							<img class="img-responsive" src="{{ slide.img.url }}" alt="{{ slide.title_h1 }} {{ slide.title_h2 }}">
 							<div class="slider-content">
 								<div class="col-md-12 text-center">
 									<h2 class="animated2">

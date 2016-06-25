@@ -6,16 +6,13 @@
 <head>
   {% load staticfiles %}
   {% load sitetree %}
-  <!-- Define Charset -->
-  <meta charset="utf-8">
 
   <!-- Responsive Metatag -->
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="content-language" content="ru" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  <!-- Page Description and Author -->
-  <meta name="description" content="Capoeira de rua - школа капоэйры в Ростове-на-Дону, Цимлянске, Шахтах">
-  <meta name="keywords" content="Капоэйра, спортивная секция по боевому искусству.">
-  <meta name="author" content="iThemesLab">
+  <meta name="description" content="{% block meta_description %}{% endblock %}">
+  <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
 
     <!-- Bootstrap CSS  -->
   <link rel="stylesheet" href="{% static 'asset/css/bootstrap.min.css'%}" type="text/css" media="screen">
@@ -90,7 +87,7 @@
             <!-- End Toggle Nav Link For Mobiles -->
             <div class="logo-container">
               <a class="navbar-brand" href="/">
-                <img alt="" src="{% static 'images/logo-min.png'%}">
+                <img alt="Школа капоэйры Capoeira de Rua" src="{% static 'images/logo-min.png'%}">
               </a>
             </div>
           </div>
@@ -174,7 +171,7 @@
 
           <div class="col-md-2 col-xs-12">
             <div class="footer-widget text-center">
-              <span class="h4"><img src="{% static 'images/logo-min.png' %}" alt="Footer Logo" /></span>
+              <span class="h4"><img src="{% static 'images/logo-min.png' %}" alt="Школа капоэйры Capoeira de Rua" /></span>
             </div>
           </div>
 

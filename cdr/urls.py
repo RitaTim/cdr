@@ -18,8 +18,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 
 from .views import start_page
+from .sitemaps import StaticSitemap, NewsSitemap
+
+sitemaps = {
+	'static': StaticSitemap,
+	'news' : NewsSitemap,
+}
 
 urlpatterns = [
 	url(r'^$', start_page),
@@ -32,6 +39,8 @@ urlpatterns = [
 	url(r'^subscribe/', include("subscribers.urls")),
 	url(r'^academy/', include("academy.urls")),
 	url(r'^encyclopedia/', include("history_articles.urls")),
+	url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
+    name='django.contrib.sitemaps.views.sitemap'),
 ]
 
 if settings.DEBUG:

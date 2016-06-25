@@ -1,5 +1,13 @@
 {% extends "main.html" %}
 
+{% block meta_description %}
+	Запишитесь в школу капоэйры Capoeira de rua в Ростове-на-Дону. Первое занятие бесплатно!
+{% endblock %}
+
+{% block meta_keywords %}
+	школа капоэйры, капоэйра танец, записаться в школу капоэйры, капоэйра в Ростове, группа Capoeira de Rua
+{% endblock %}
+
 {% block title %}
 	О школе Capoeira de Rua
 {% endblock title%}
@@ -18,7 +26,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="navbar-title">
-						<h2> О ШКОЛЕ <p> Capoeira de Rua</p> </h2>
+						<h1> О ШКОЛЕ <p> Capoeira de Rua</p> </h1>
 					</div>
 				</div>
 			</div>
@@ -39,7 +47,7 @@
 
 					<div class="col-md-6">
 						<div class="item">
-							<img alt="" src="{{ data.img.url }}">
+							<img alt="{{ data.title }}" src="{{ data.img.url }}">
 						</div>
 
 						<div class="text-center margin-vert-20">
@@ -69,9 +77,9 @@
 								<!-- Memebr Photo, Name & Position -->
 								<div class="member-photo">
 									{% if trainer.photo %}
-										<img alt="" src="{{ trainer.photo.url }}" />
+										<img alt="{{ trainer.status }} {{ trainer }}" src="{{ trainer.photo.url }}" />
 									{% else %}
-										<img alt="" src="{% static 'images/cap.png' %}" />
+										<img alt="{{ trainer.status }} {{ trainer }}" src="{% static 'images/cap.png' %}" />
 									{% endif %}
 									<div class="member-name">
 										<a data-toggle="collapse" data-parent="#toggle" href="#collapse-{{ trainer.id }}" aria-expanded="false" class="collapsed">

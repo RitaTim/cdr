@@ -4,5 +4,5 @@ from .views import (
 )
 
 urlpatterns = [
-	url(r'^$', get_about_page),
+	url(r'^$', get_about_page, name='about'),
 ]

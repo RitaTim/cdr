@@ -1,5 +1,13 @@
 {% extends "main.html" %}
 
+{% block meta_description %}
+	{{ new.title }} {{ new.preview_text }}
+{% endblock %}
+
+{% block meta_keywords %}
+	{{ new.title }}
+{% endblock %}
+
 {% block title %}
 	{{ new.title }}
 {% endblock title%}
@@ -18,7 +26,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="navbar-title">
-						<h2> НОВОСТИ <p>школы Capoeira de Rua</p> </h2>           
+						<h1> НОВОСТИ <p>школы Capoeira de Rua</p> </h1>           
 					</div>
 				</div>
 			</div>
@@ -46,7 +54,7 @@
 							{% if new.image %}
 								<div class="item">
 									<a class="fancybox" title="{{ new.title }}" href="{{ new.image.url }}">
-										<img alt="" src="{{ new.image.url }}">
+										<img alt="{{ new.title }}" src="{{ new.image.url }}">
 									</a>
 								</div>
 							{% endif %}
