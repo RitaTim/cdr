@@ -1,4 +1,5 @@
-from __future__ import unicode_literals
+# -*- coding: utf-8 -*-
+
 from django.db import models
 from django.db.models.signals import pre_save
 from django.core.urlresolvers import reverse
@@ -10,13 +11,13 @@ def get_uploaded_file_name(instance, filename):
 	return "news/%s" % filename
 
 class New(models.Model):
-	title = models.CharField(verbose_name="Название", max_length=100)
+	title = models.CharField(u"Название", max_length=100)
 	slug = models.SlugField(unique=True, blank=True, null=True)
-	preview_text = models.TextField(verbose_name="Описание анонса")
-	detail_text = models.TextField(verbose_name="Детальное описание")
-	image = models.ImageField(upload_to=get_uploaded_file_name, verbose_name="Картинка", blank=True, null=True)
-	updated = models.DateTimeField(verbose_name="Данные обновлены", auto_now=True, auto_now_add=False)
-	created = models.DateTimeField(verbose_name="Данные созданы", auto_now=False, auto_now_add=True)
+	preview_text = models.TextField(u"Описание анонса")
+	detail_text = models.TextField(u"Детальное описание")
+	image = models.ImageField(u"Картинка", upload_to=get_uploaded_file_name, blank=True, null=True)
+	updated = models.DateTimeField(u"Данные обновлены", auto_now=True, auto_now_add=False)
+	created = models.DateTimeField(u"Данные созданы", auto_now=False, auto_now_add=True)
 
 
 	def __str__(self):
@@ -27,6 +28,8 @@ class New(models.Model):
 
 	class Meta:
 		ordering = ['-updated', '-created']
+		verbose_name = u'Новость'
+		verbose_name_plural = u'Новости'
 
 def pre_save_post(sender, instance, *args, **kwargs):
 	if instance.slug:
