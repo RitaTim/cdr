@@ -2,4 +2,4 @@ Django==1.9
 Pillow==2.6.1
 transliterate==1.9
 django-sitetree==1.7.0
-MySQL-python==1.2.3
+
