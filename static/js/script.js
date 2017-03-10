@@ -1,8 +1,9 @@
 /* ----------------- Start JS Document ----------------- */
 
 // Page Loader
+
 $(window).load(function () {
-	"use strict";    
+	"use strict";
 	$('#loader').fadeOut();
 });
 
@@ -198,10 +199,7 @@ $(document).ready(function ($) {
 		autoHeight : true,
 		transitionStyle : "fade"
 	});
-	
-	
-	
-	
+
 	
 	
 	////------- Custom Carousel
@@ -276,7 +274,7 @@ $(document).ready(function ($) {
 	$('#myTab a').click(function (e) {
 		e.preventDefault()
 		$(this).tab('show')
-	})
+	});
 	
 	
 	
@@ -428,7 +426,7 @@ $(document).ready(function ($) {
 			delay: 50,
 			sync: false,
 			shuffle: false,
-			reverse: true,
+			reverse: true
 		},
 		out: {
 			effect: 'fadeOutUp',
@@ -436,8 +434,8 @@ $(document).ready(function ($) {
 			delay: 50,
 			sync: false,
 			shuffle: false,
-			reverse: true,
-		},
+			reverse: true
+		}
 	});
 	
 	
@@ -754,4 +752,4 @@ var send_form_subscribe = function(){
 $('#form-subscribe').on('submit', function(event){
 	event.preventDefault();
 	send_form_subscribe();
-})
+});

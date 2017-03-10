@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block meta_description %}
+	{{ album.description }}
+{% endblock %}
+
+{% block meta_keywords %}
+	{{ album.title }}
+{% endblock %}
+
+{% block title %}
+	Альбом: {{ album.title }}
+{% endblock title%}
+
+{% block content %}
+	<!-- Start Page Banner -->
+	<div class="page-banner">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<ul class="breadcrumbs">
+						<li><a href="#">Главная</a></li>
+						<li><a href="/gallery">Галлерея</a></li>
+						<li>{{ album.title }}</li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<div class="navbar-title">
+						<h1> АЛЬБОМ <p>школы Capoeira de Rua</p> </h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Page Banner -->
+
+	<!-- Start Content -->
+	<div id="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="recent-projects">
+						<div class="h4 title">
+							<span>{{ album.title }}</span>
+						</div>
+						<br>
+						<p>{{ album.description }}</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Divider -->
+			<div class="hr5" style="margin-top:45px; margin-bottom:35px;"></div>
+
+			{% if photos %}
+				<div class="portfolio-page portfolio-4column">
+					<ul id="portfolio-list" class="gallery" data-animated="fadeIn">
+						{% for photo in photos %}
+							<li>
+								<img src="{{ photo.img.url }}" alt="{{ photo.title }}" />
+								
+								<div class="portfolio-item-content">
+									{% if photo.title %}
+										<span class="header">{{ photo.title }}</span>
+									{% endif %}
+									{% if photo.comment %}
+										<p class="body">{{ photo.comment }}</p>
+									{% endif %}
+								</div>
+
+								<a class="fancybox" title="{{ photo.title }}" href="{{ photo.img.url }}" rel="gallery">
+									<i class="more">+</i>
+								</a>
+							</li>
+						{% endfor %}
+					</ul>
+					<!-- End Portfolio Items -->
+				</div>
+
+				<br>
+
+				<!-- Start Pagination -->
+				<div id="pagination">
+					<span class="all-pages">Страница {{ photos.number }} из {{ photos.paginator.num_pages }}</span>
+					{% if photos.has_previous %}
+						<a class="page-num"  href="?page={{ photos.previous_page_number }}">{{ photos.previous_page_number }}</a>
+					{% endif %}
+					<span class="current page-num">{{ photos.number }}</span>
+					{% if photos.has_next %}
+						<a class="next-page"  href="?page={{ photos.next_page_number }}">{{ photos.next_page_number }}</a>
+					{% endif %}
+					{% if photos.has_next %}
+						<a class="next-page"  href="?page={{ photos.next_page_number }}">Следующая страница</a>
+					{% endif %}
+				</div>
+				<!-- End Pagination -->
+			{% else %}
+				<p>В альбоме пока нет фотографий</p>
+			{% endif %}
+		</div>
+	</div>
+	<!-- End Content -->
+{% endblock content %}
