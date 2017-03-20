@@ -26,3 +26,15 @@ class RobotsPageView(TemplateView):
 
 
 robots_page = RobotsPageView.as_view(content_type='text/plain')
+
+
+class Page404View(TemplateView):
+	template_name = "404.html"
+
+page_404 = Page404View.as_view()
+
+
+class Page500View(TemplateView):
+	template_name = "500.html"
+
+page_500 = Page500View.as_view()
