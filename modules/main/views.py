@@ -28,13 +28,29 @@ class RobotsPageView(TemplateView):
 robots_page = RobotsPageView.as_view(content_type='text/plain')
 
 
-class Page404View(TemplateView):
+class ErrorPageView(TemplateView):
+	"""
+		Дочерние вьюхи должны иметь установленное значение параметра
+		status_code - возвращаемый статус ответа
+	"""
+	status_code = None
+
+	def get(self, request, *args, **kwargs):
+		response = super(ErrorPageView, self).get(request, *args, **kwargs)
+		response.status_code = self.status_code
+		return response
+
+
+
+class Page404View(ErrorPageView):
 	template_name = "404.html"
+	status_code = 404
 
 page_404 = Page404View.as_view()
 
 
-class Page500View(TemplateView):
+class Page500View(ErrorPageView):
 	template_name = "500.html"
+	status_code = 500
 
 page_500 = Page500View.as_view()
