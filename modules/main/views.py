@@ -19,3 +19,15 @@ class HomePageView(TemplateView):
 		return context
 
 home_page = HomePageView.as_view()
+
+
+class Page404View(TemplateView):
+	template_name = "404.html"
+
+page_404 = Page404View.as_view()
+
+
+class Page500View(TemplateView):
+	template_name = "500.html"
+
+page_500 = Page500View.as_view()
