@@ -21,6 +21,13 @@ class HomePageView(TemplateView):
 home_page = HomePageView.as_view()
 
 
+class RobotsPageView(TemplateView):
+	template_name='robots.txt'
+
+
+robots_page = RobotsPageView.as_view(content_type='text/plain')
+
+
 class Page404View(TemplateView):
 	template_name = "404.html"
 
