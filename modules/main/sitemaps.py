@@ -13,12 +13,14 @@ class NewsSitemap(Sitemap):
 	def items(self):
 		return New.objects.all()
 
+
 class StaticSitemap(Sitemap):
 	priority = 0.8
 	changefreq = 'weekly'
 
 	def items(self):
-		return ['about', 'filials', 'gallery', 'history', 'masters', 'academy', 'list_news']
+		return ['about', 'filials', 'gallery', 'history', 'masters',
+		        'academy', 'news_list']
 
 	def location(self, item):
 		return reverse(item)
