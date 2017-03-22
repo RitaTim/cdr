@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block meta_description %}
+	Поиск на сайте школы {{ q }}
+{% endblock %}
+
+{% block meta_keywords %}
+	школа Capoeira de Rua, бесплатное занятие по капоэйре, события школы кпоэйры
+{% endblock %}
+
+{% block title %}
+	Поиск
+{% endblock title%}
+
+{% block content %}
+	 <!-- Start Page Banner -->
+		<div class="page-banner">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<ul class="breadcrumbs">
+							<li><a href="#">Главная</a></li>
+							<li>Поиск</li>
+						</ul>
+					</div>
+					<div class="col-md-6">
+						<div class="navbar-title">
+							<h1> Поиск по сайту <p>школы Capoeira de Rua</p> </h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Page Banner -->
+
+		<!-- Start Content -->
+		<div id="content">
+			<div class="container">
+			    <div class="page-content">
+                    <div class="row">
+
+                        <!-- Start Blog Posts -->
+                        <div class="col-md-9 blog-box">
+                            <div class="h4 classic-title">
+                                <span>Результаты поиска</span>
+                            </div>
+
+                            {% if data_indexes_pages %}
+                                {% for page in data_indexes_pages %}
+                                    <!-- Start Post -->
+                                    <div class="blog-post">
+                                        <!-- Post Thumb -->
+                                        <!-- Post Content -->
+                                        <div class="post-content">
+                                            <h2><a href="{% if page.url_name %}{% url page.url_name %}{% else %}{{ page.href }}{% endif %}">{{ page.title }}</a></h2>
+                                            <p>{{ page.text | safe }}</p>
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <!-- End Post -->
+                                {% endfor %}
+                            {% else %}
+                                <h2>По вашему запросу ничего не найдено</h2>
+                            {% endif %}
+
+                        </div>
+                        <!-- End Blog Posts -->
+
+
+                        <!--Sidebar-->
+                        <div class="col-md-3 sidebar right-sidebar">
+                            {% include "components/search_widget.html" %}
+
+                            {% include "components/come-to-us.html" %}
+
+                            {% include "components/tags.html" %}
+                        </div>
+                        <!--End sidebar-->
+
+                    </div>
+                </div>
+            </div>
+		</div>
+		<!-- End Content -->
+{% endblock content %}
