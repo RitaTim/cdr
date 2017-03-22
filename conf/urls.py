@@ -18,6 +18,7 @@ urlpatterns = [
 	url(r'^subscribe/', include("subscribers.urls")),
 	url(r'^academy/', include("academy.urls")),
 	url(r'^encyclopedia/', include("history_articles.urls")),
+	url(r'^search/', include("search.urls")),
 ]
 
 handler404 = 'main.views.page_404'

@@ -3,8 +3,11 @@
 from transliterate import translit, detect_language
 
 from django.db import models
+from django.db.models import Q
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
+
+from search.models import SearchManager
 
 
 def get_uploaded_file_name(instance, filename):
@@ -26,6 +29,15 @@ class Category(models.Model):
 		verbose_name = u'Тип альбомов'
 		verbose_name_plural = u'Тип альбомов'
 
+
+class AlbumManager(SearchManager):
+	def get_search_qs(self, q):
+		return self.get_queryset().filter(
+			Q(title__icontains=q) |
+			Q(description__icontains=q)
+		).distinct()
+
+
 class Album(models.Model):
 	title = models.CharField(u"Название альбома", max_length=400)
 	slug = models.SlugField(unique=True, blank=True, null=True)
@@ -37,6 +49,8 @@ class Album(models.Model):
 	                               auto_now_add=False)
 	created = models.DateTimeField(u"Данные созданы", auto_now=False,
 	                               auto_now_add=True)
+
+	objects = AlbumManager()
 
 	class Meta:
 		ordering = ['updated', 'created']
@@ -50,6 +64,14 @@ class Album(models.Model):
 	@models.permalink
 	def get_absolute_url(self):
 		return ('album_detail', None, {'symbol_code': self.slug})
+
+	@property
+	def data_for_search(self):
+		return {
+			'title': self.title,
+			'text': self.description,
+			'href': self.get_absolute_url()
+		}
 
 	class Meta:
 		verbose_name = u'Альбом'
