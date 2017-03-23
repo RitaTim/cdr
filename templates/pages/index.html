@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block meta_description %}
-	Capoeira de Rua школа бразильского боевого искусства в Ростове-на-Дону, Шахтах, Цимлянске
+	Capoeira de Rua - школа бразильского боевого искусства в Ростове-на-Дону, Шахтах, Цимлянске
 {% endblock %}
 
 {% block meta_keywords %}
-	школа капоэйры, капоэйра боевое искусство, записаться в школу капоэйры, группа сapoeira de rua, португальский язык
+	капоэйра в Ростове, капоэйра для новичков, капоэйра для детей, капуэйра, капоэра, боевые искусства в Ростове, школа капоэйры, секции для детей, сapoeira de rua
 {% endblock %}
 
 {% block title %}
@@ -25,12 +25,18 @@
 							<img class="img-responsive" src="{{ slide.img.url }}" alt="{{ slide.title_h1 }} {{ slide.title_h2 }}">
 							<div class="slider-content">
 								<div class="col-md-12 text-center">
-									<h2 class="animated2">
-										<span><strong>{{ slide.title_h1 }}</strong></span>
-									</h2>
-									<h3 class="animated3">
-										<span><strong>{{ slide.title_h2 }}</strong></span>
-									</h3>
+                                    {% if slide.is_main %}
+                                        <h1 class="animated2">
+                                            <span><strong>{{ slide.title_h1 }}</strong></span>
+                                        </h1>
+                                    {% else %}
+                                        <h2 class="animated2">
+                                            <span><strong>{{ slide.title_h1 }}</strong></span>
+                                        </h2>
+                                        <h3 class="animated3">
+                                            <span><strong>{{ slide.title_h2 }}</strong></span>
+                                        </h3>
+                                    {% endif %}
 									{% if slide.title_btn %}
 										<p class="animated4">
 											<a href="{% if slide.href_btn %} slide.href_btn {% else %} '#' {% endif %}" class="slider btn btn-system btn-large">{{ slide.title_btn }}</a>
