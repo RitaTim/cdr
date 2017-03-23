@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block meta_description %}
+	Обучение капоэйре онлайн в академии Capoeira de Rua. Базовые техника, ритмы и танцы в капоэйре
+{% endblock %}
+
+{% block meta_keywords %}
+	капоэйра онлайн, базовая техника капоэйры, музыка в капоэйре, урок по бразильской самбe, академия capoeira de rua
+{% endblock %}
+
+{% load staticfiles %}
+
+{% block title %}
+	Академия школы капоэйры Capoeira de Rua
+{% endblock title %}
+
+{% block content %}
+	<!-- Start Page Banner -->
+	<div class="page-banner">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<ul class="breadcrumbs">
+						<li><a href="#">Главная</a></li>
+						<li>Академия</li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<div class="navbar-title">
+					<h1> АКАДЕМИЯ <p>школы Capoeira de Rua</p></h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Page Banner -->
+
+	<!-- Start Content -->
+	<div id="content">
+		<div class="container">
+			<div class="row sidebar-page">
+
+				<div class="col-md-9 page-content">
+					<div class="row">
+						<div class="col-md-12">
+							<span class="h4 classic-title"><span>{{ academy.title }}</span>
+							<p>{{ academy.description |safe }}</p>
+						</div>
+					</div>
+
+
+					<div class="tabs-section">
+						<!-- Nav Tabs -->
+						<ul class="nav nav-tabs">
+							{% for section in sections%}
+								<li class="{% if section.id == 1 %}active{% endif %}"><a href="#tab-{{ section.id }}" data-map-id="{{ section.id }}" data-toggle="tab">{{ section.title }}</a></li>
+							{% endfor %}
+						</ul>
+
+						<!-- Tab Panels -->
+						<div class="tab-content">
+						{% for section in sections%}
+							<div class="tab-pane fade {% if section.id == 1 %}in active{% endif %}" id="tab-{{ section.id }}">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="col-md-4 text-center">
+											<!-- Accordion -->
+											<div class="panel-group" id="accordion">
+											{% for subsection in section.subsection_set.all %}
+
+												<div class="panel-default">
+													<!-- Toggle Heading -->
+													<div class="panel-heading">
+														<span class="h4 panel-title">
+															<a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ subsection.id }}">
+																<i class="fa fa-angle-up control-icon"></i>
+																{{ subsection.title }}
+															</a>
+														</h4>
+													</div>
+													<!-- Toggle Content -->
+													<div id="collapse-{{ subsection.id }}" class="panel-collapse collapse in">
+														<div class="panel-body">
+															<ul>
+																{% for video in subsection.video_set.all %}
+																	<li>
+																		<a href="{{ video.ref_video }}" target="_blank">
+																			{{ video.title }}
+																		</a>
+																	</li>
+																{% endfor %}
+															</ul>
+														</div>
+													</div>
+												</div>
+											{% endfor %}
+											</div>
+											<!-- End Accordion -->
+										</div>
+
+										<div class="col-md-8 text-center">
+											<img src="{{ section.img.url }}" title="{{ section.description }}" alt="{{ section.title }}">
+										</div>
+									</div><!-- col-md-12 -->
+								</div><!-- row -->
+							</div><!-- tab-pane -->
+						{% endfor %}
+						</div>
+						<!-- End Tab Panels -->
+
+					</div>
+					<!-- tabs-section -->
+
+				</div>
+				<!-- End Page Content -->
+
+
+				<!--Sidebar-->
+				<div class="col-md-3 sidebar right-sidebar">
+					{% include "components/come-to-us.html" %}
+				
+					<!-- Start Post -->
+					<div class="blog-post quote-post">
+						<div class="qoute-box">
+							<a href="#">
+								<span class="h2">"{{ citation.text }}"</span>
+								<div class="qoute-author">Местре 
+									{%if citation.master__apelido %}
+										{{ citation.master__apelido }}
+											{% else %}
+										{{citation.master__name }}
+									{% endif %}
+								</div>
+							</a>
+						</div>
+					</div>
+					<!-- End Post -->
+
+					{% include "components/tags.html" %}
+
+				</div>
+				<!--End sidebar-->
+
+			</div>
+			<!--End sidebar-page-->
+
+		</div>
+		<!--End container-->
+
+	</div>
+	<!-- End Content -->
+{% endblock content %}

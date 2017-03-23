@@ -1,0 +1,14 @@
+User-Agent: *
+Disallow: /admin/
+Disallow: /new-student/
+Disallow: /subscribe/
+
+Host: http://www.capoeira-de-rua.ru/
+Sitemap: http://www.capoeira-de-rua.ru/sitemap.xml
+
+Clean-param: q /search/
+
+# bad robots:
+User-agent: AhrefsBot
+Disallow: /
+Add Comment
