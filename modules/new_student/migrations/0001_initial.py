@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('phone', models.CharField(max_length=400, verbose_name='Номер телефона')),
                 ('updated', models.DateTimeField(auto_now=True, verbose_name='Данные обновлены')),
                 ('created', models.DateTimeField(auto_now_add=True, verbose_name='Данные созданы')),
-                ('filial', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='filials.models.Filial', verbose_name='Филиал')),
+                ('filial', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='filials.Filial', verbose_name='Филиал')),
             ],
         ),
     ]

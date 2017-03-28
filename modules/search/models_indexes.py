@@ -14,5 +14,7 @@
 from news.models import New
 from about.models import About
 from gallery.models import Album
+from history_articles.models import Article
+from master.models import Master
 
-models_indexes = [New, About, Album]
+models_indexes = [New, About, Album, Article, Master]

@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('text', models.TextField(blank=True, null=True, verbose_name='Текст')),
                 ('updated', models.DateTimeField(auto_now=True, verbose_name='Данные обновлены')),
                 ('created', models.DateTimeField(auto_now_add=True, verbose_name='Данные созданы')),
-                ('photos', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='gallery.models.Photo', verbose_name='Фотграфии')),
+                ('photos', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='gallery.Photo', verbose_name='Фотграфии')),
             ],
         ),
     ]

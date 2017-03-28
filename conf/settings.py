@@ -31,13 +31,14 @@ MODULES = [
     'filials',
     'gallery',
     'country',
+    'encyclopedia',
     'master',
     'citations',
     'about',
     'new_student',
     'subscribers',
     'academy',
-    'history_articles'
+    'history_articles',
 ]
 
 # Requirered packages

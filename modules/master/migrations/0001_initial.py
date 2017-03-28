@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
                 ('date_death', models.DateTimeField(blank=True, null=True, verbose_name='Дата смерти')),
                 ('updated', models.DateTimeField(auto_now=True, verbose_name='Данные обновлены')),
                 ('created', models.DateTimeField(auto_now_add=True, verbose_name='Данные созданы')),
-                ('country', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='country.models.Country', verbose_name='Страна')),
+                ('country', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='country.Country', verbose_name='Страна')),
             ],
         ),
     ]

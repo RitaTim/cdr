@@ -1,6 +1,6 @@
 <!-- Search Widget -->
 <div class="widget widget-search">
-    <form action="/search/">
+    <form action="{% url 'site_search' %}">
         <input type="search" placeholder="Поиск..." value="{{ q }}" name="q" id="q"/>
         <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
     </form>

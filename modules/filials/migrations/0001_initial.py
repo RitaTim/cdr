@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('email', models.CharField(blank=True, max_length=300, null=True, verbose_name='E-mail')),
                 ('phone', models.CharField(max_length=300, verbose_name='Телефон')),
                 ('timetable', models.TextField(blank=True, null=True, verbose_name='Расписание')),
-                ('trainer', models.ManyToManyField(blank=True, related_name='filial', related_query_name='filial', to='trainers.models.Trainer', verbose_name='Тренер')),
+                ('trainer', models.ManyToManyField(blank=True, related_name='filial', related_query_name='filial', to='trainers.Trainer', verbose_name='Тренер')),
             ],
         ),
     ]

@@ -1,35 +1,92 @@
-<!-- Classic Heading -->
-<h4 class="classic-title"><span>{{ article.title }}</span></h4>
+{% extends "base.html" %}
 
-<div class="row block-article">
-	<div class="col-md-5 float-left">
-		{% if article.period %}
-			<p><span class="h5">Период: </span><span>{{ article.period }}</span></p>
-		{% endif %}
+{% block meta_description %}
+    {{ article.description|default:article.title }}
+{% endblock %}
 
-		{% if article.country %}
-			<p><span class="h5">Страна: </span><span>{{ article.country }}</span></p>
-		{% endif %}
+{% block meta_keywords %}
+	{{ article.keywords|default:article.title }}
+{% endblock %}
 
-		{% if article.date_b %}
-			<p><span class="h5">Родился: </span><span>{{ article.date_b | date:"Y.m.d" }}</span></p>
-		{% endif %}
-		{% if article.date_d %}
-			<p><span class="h5">Умер: </span><span>{{ article.date_d | date:"Y.m.d"}}</span></p>
-		{% endif %}
+{% block title %}
+	{{ article.title }}
+{% endblock title%}
 
-		{% if article.apelido %}
-			<p><span class="h5">Апелиду: </span><span>{{ article.apelido }}</span></p>
-		{% endif %}
+{% block content %}
+	{% load staticfiles %}
+		<!-- Start Page Banner -->
+		<div class="page-banner">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<ul class="breadcrumbs">
+                            <li><a href="/">Главная</a></li>
+                            <li><a href="{% url "encyclopedia" %}">Энциклопедия</a></li>
+                            <li><a href="{% url "articles" %}">Культура капоэйры</a></li>
+                            <li>{{ article.title }}</li>
+						</ul>
+					</div>
+					<div class="col-md-6">
+						<div class="navbar-title">
+							<h1> ЭНЦИКЛОПЕДИЯ <p>школы Capoeira de Rua</p> </h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Page Banner -->
 
-		{% if article.photo %}
-			<img alt="{{ article.title }}" src="{{ article.photo.url }}">
-		{% endif %}
-	</div>
+		<!-- Start Content -->
+		<div id="content">
+			<div class="container">
+				<div class="row sidebar-page">
+					<div class="col-md-9 page-content">
+                        <!-- Classic Heading -->
+                        <h4 class="classic-title"><span>{{ article.title }}</span></h4>
 
-	<p>{{ article.description | safe }}</p>
+                        <div class="row block-article">
+                            <div class="col-md-5 float-left">
+                                {% if article.photo %}
+                                    <img alt="{{ article.title }}" src="{{ article.photo.url }}">
+                                {% endif %}
+                            </div>
 
-</div>
+                            <p>{{ article.detail_text | safe }}</p>
 
-<!-- Divider -->
-<div class="hr5" style="margin-top:30px; margin-bottom:45px;"></div>
+                            {%  if prev_obj %}
+                                <a class="main-button" href="{% url 'article' prev_obj.id %}" data-toggle="tooltip" data-placement="top" title="{{ prev_obj.title }}">
+                                    <i class="fa fa-angle-left"></i> Назад
+                                </a>
+                            {% endif %}
+                            {%  if next_obj %}
+                                <a class="main-button" href="{% url 'article' next_obj.id %}" data-toggle="tooltip" data-placement="top" title="{{ next_obj.title }}">
+                                    Далее <i class="fa fa-angle-right"></i>
+                                </a>
+                            {% endif %}
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="hr5" style="margin-top:30px; margin-bottom:45px;"></div>
+					</div>
+
+                <!--Sidebar-->
+				<div class="col-md-3 sidebar right-sidebar">
+					{% include "components/search_widget.html" %}
+
+					<!-- Categories Widget -->
+					<div class="widget widget-categories text-center">
+						<a class="main-button" href="{% url "articles" %}">Вернуться к списку статей <i class="fa fa-angle-right"></i></a>
+					</div>
+
+                    {% include "components/citation_widget.html" %}
+
+                    {% include "components/tags.html" %}
+
+				</div>
+				<!--End sidebar-->
+
+				</div>
+			</div>
+		</div>
+		<!-- End Content -->
+{% endblock content %}

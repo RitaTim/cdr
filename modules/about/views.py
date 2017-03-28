@@ -2,7 +2,7 @@
 
 from django.views.generic.base import TemplateView
 
-from citations.models import Citation
+from main.helpers import get_random_citation
 from trainers.models import Trainer
 from .models import About
 
@@ -11,10 +11,10 @@ class AboutPageView(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(AboutPageView, self).get_context_data()
+		context.update(get_random_citation())
 		context.update({
 			'data' : About.objects.filter().first(),
 			'trainers': Trainer.objects.filter(),
-			'citation': Citation.objects.filter().first(),
 		})
 		return context
 

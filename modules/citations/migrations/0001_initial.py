@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('text', models.TextField(verbose_name='Текст цитаты')),
                 ('updated', models.DateTimeField(auto_now=True, verbose_name='Данные обновлены')),
                 ('created', models.DateTimeField(auto_now_add=True, verbose_name='Данные созданы')),
-                ('master', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='master.models.Master', verbose_name='Автор')),
+                ('master', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='master.Master', verbose_name='Автор')),
             ],
         ),
     ]

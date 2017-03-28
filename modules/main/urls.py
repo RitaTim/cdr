@@ -4,11 +4,13 @@ from django.conf.urls import url
 from django.contrib.sitemaps.views import sitemap
 
 from .views import home_page, robots_page
-from .sitemaps import StaticSitemap, NewsSitemap
+from .sitemaps import StaticSitemap, NewsSitemap, ArticlesSitemap, MastersSitemap
 
 sitemaps = {
 	'static': StaticSitemap,
 	'news' : NewsSitemap,
+	'articles': ArticlesSitemap,
+	'masters': MastersSitemap
 }
 
 urlpatterns = [

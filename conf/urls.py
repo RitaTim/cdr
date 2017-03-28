@@ -17,7 +17,7 @@ urlpatterns = [
 	url(r'^new-student/', include("new_student.urls")),
 	url(r'^subscribe/', include("subscribers.urls")),
 	url(r'^academy/', include("academy.urls")),
-	url(r'^encyclopedia/', include("history_articles.urls")),
+	url(r'^encyclopedia/', include("encyclopedia.urls")),
 	url(r'^search/', include("search.urls")),
 ]
 
