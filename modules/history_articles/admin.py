@@ -6,7 +6,7 @@ from .models import Article
 
 
 class ArticleAdmin(admin.ModelAdmin):
-	list_display = ['title', 'period']
+	list_display = ['title']
 	list_filter = ['created']
 
 	class Meta:

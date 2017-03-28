@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block meta_description %}
+	Капоэйра - искусство всестороннего развития. Вы узнаете, где зародилось это необычное боевое искусство и как "заразило" весь мир. Какое значение имеет музыка в капоэйре
+{% endblock %}
+
+{% block meta_keywords %}
+	культура капоэйры, история капоэйры, мастера капоэйры, капоэйра боевое искусство, капоэйра для всех, capoeira de rua
+{% endblock %}
+
+{% block title %}
+	Мастера по капоэйре
+{% endblock title%}
+
+{% block content %}
+    {% load staticfiles %}
+    <!-- Start Page Banner -->
+    <div class="page-banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="breadcrumbs">
+                        <li><a href="#">Главная</a></li>
+                        <li>Энциклопедия</li>
+                        <li>{{ title_page }}</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <div class="navbar-title">
+                        <h1> Культура <p>история капоэйры</p> </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Page Banner -->
+
+    <!-- Start Content -->
+    <div id="content">
+        <div class="container">
+            <div class="h4 classic-title">
+                <span>Капоэйра - искусство всестороннего развития</span>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-9 page-content">
+                    <p>История капоэйры насчитывает несколько сотен лет... Рассказать о ней в двух словах не так просто. Но здесь вы сможете найти ответы на многие вопросы</p>
+                    <p>Вы узнаете, где зародилось это необычное боевое искусство и как "заразило" весь мир; какое значение имеет музыка в капоэйре и что такое "рода" и, почему это не "поединок" или "бой",  а "игра"</p>
+                    <p>Переместитесь с нами во времени и узнайте, чем жили основатели и другие великие мастера капоэйры! Будет интересно ;-) </p>
+                    <img alt="Культура капоэйры" src="{% static 'images/encyclopedia.jpg' %}">
+                </div>
+
+                <div class="col-md-3">
+                    <div class="owl-item">
+                        <div class="portfolio-item item">
+                            <div class="portfolio-border">
+                                <!-- Start Project Thumb -->
+                                <div class="portfolio-thumb">
+                                    <a class="lightbox" data-lightbox-type="ajax" href="{% url 'articles' %}">
+                                        <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
+                                        <img alt="Культура капоэйры" src="{% static 'images/articles-main.jpg' %}">
+                                    </a>
+                                </div>
+                                <!-- End Project Thumb -->
+
+                                <!-- Start Project Details -->
+                                <div class="portfolio-details">
+                                    <a href="{% url 'articles' %}">
+                                        <span class="h4">
+                                            История и культура капоэйры
+                                        </span>
+                                    </a>
+                                </div>
+                                <!-- End Project Details -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="owl-item">
+                        <div class="portfolio-item item">
+                            <div class="portfolio-border">
+                                <!-- Start Project Thumb -->
+                                <div class="portfolio-thumb">
+                                    <a class="lightbox" data-lightbox-type="ajax" href="{% url 'masters' %}">
+                                        <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
+                                        <img alt="Мастера капоэйры" src="{% static 'images/masters-main.jpg' %}">
+                                    </a>
+                                </div>
+                                <!-- End Project Thumb -->
+
+                                <!-- Start Project Details -->
+                                <div class="portfolio-details">
+                                    <a href="{% url 'masters' %}">
+                                        <span class="h4">
+                                            Великие мастера капоэйры
+                                        </span>
+                                    </a>
+                                </div>
+                                <!-- End Project Details -->
+                            </div>
+                        </div>
+                    </div>
+                </div><!--col-md-3-->
+            </div><!--row-->
+        </div><!--container-->
+    </div>
+    <!-- End Content -->
+{% endblock content %}

@@ -50,7 +50,7 @@ class Migration(migrations.Migration):
                 ('img', models.ImageField(upload_to=get_uploaded_file_name, verbose_name='Картинка')),
                 ('updated', models.DateTimeField(auto_now=True, verbose_name='Данные обновлены')),
                 ('created', models.DateTimeField(auto_now_add=True, verbose_name='Данные созданы')),
-                ('album', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='gallery.models.Album')),
+                ('album', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='gallery.Album')),
             ],
             options={
                 'ordering': ['updated', 'created'],
@@ -59,6 +59,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='album',
             name='category',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='gallery.models.Category'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='gallery.Category'),
         ),
     ]

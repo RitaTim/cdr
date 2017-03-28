@@ -45,7 +45,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=400, verbose_name='Название подраздела')),
                 ('updated', models.DateTimeField(auto_now=True, verbose_name='Данные обновлены')),
                 ('created', models.DateTimeField(auto_now_add=True, verbose_name='Данные созданы')),
-                ('section', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='academy.models.Section', verbose_name='Раздел')),
+                ('section', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='academy.Section', verbose_name='Раздел')),
             ],
             options={
                 'ordering': ['created'],
@@ -59,7 +59,7 @@ class Migration(migrations.Migration):
                 ('ref_video', models.CharField(max_length=400, verbose_name='Ссылка на видео')),
                 ('updated', models.DateTimeField(auto_now=True, verbose_name='Данные обновлены')),
                 ('created', models.DateTimeField(auto_now_add=True, verbose_name='Данные созданы')),
-                ('subsection', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='academy.models.Subsection', verbose_name='Подраздел')),
+                ('subsection', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='academy.Subsection', verbose_name='Подраздел')),
             ],
             options={
                 'ordering': ['created'],

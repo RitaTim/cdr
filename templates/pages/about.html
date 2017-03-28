@@ -54,14 +54,7 @@
 							<a href="#" data-toggle="modal" data-target=".add-student-form" class="add-student btn-system btn-large">ПРИСОЕДИНЯЙСЯ К НАШЕЙ КОМАНДЕ!</a>
 						</div>
 
-						<div class="blog-post quote-post">
-							<div class="qoute-box">
-								<a href="#">
-									<span class="h2">"{{ citation.text }}"</span>
-									<div class="qoute-author">Местре {{ citation.master }}</div>
-								</a>
-							</div>
-						</div>
+                        {% include "components/citation_widget.html" %}
 					</div>
 				</div>
 

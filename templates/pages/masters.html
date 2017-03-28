@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block meta_description %}
+	Великие мастера капоэйры всех времен и народов. Различные стили, различные виденья, различные страны. Всех объединила капоэйра
+    Истории основателей и других мастеров капоэйры
+{% endblock %}
+
+{% block meta_keywords %}
+	история капоэйры, мастера капоэйры, капоэйра боевое искусство, капоэйра для всех, capoeira de rua
+{% endblock %}
+
+{% block title %}
+	Мастера по капоэйре
+{% endblock title%}
+
+{% block content %}
+	{% load staticfiles %}
+		<!-- Start Page Banner -->
+		<div class="page-banner">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<ul class="breadcrumbs">
+							<li><a href="/">Главная</a></li>
+                            <li><a href="{% url "encyclopedia" %}">Энциклопедия</a></li>
+							<li>Мастера</li>
+						</ul>
+					</div>
+					<div class="col-md-6">
+						<div class="navbar-title">
+							<h1> МАСТЕРА <p>по капоэйре</p> </h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Page Banner -->
+
+		<!-- Start Content -->
+		<div id="content">
+			<div class="container">
+                <div class="h4 classic-title">
+                    <span>Великие мастера капоэйры</span>
+                </div>
+
+				<div class="row sidebar-page">
+                    <div class="col-md-12 page-content">
+                        <p>
+                            У каждого из них своя история и свой интересный путь в капоэйре. У каждого свой собственный подход и виденье.
+                            И каждый из них поделился частичкой своей души с миром и внес вклад в развитие этой необыкновенной культуры.
+                            Вашему вниманию представлены уважаемые мастера по капоэйре всех времен и народов
+                        </p>
+                    </div>
+					<div class="col-md-12 page-content">
+                        {% for master in masters %}
+                            <div class="col-md-3">
+                                <div class="owl-item">
+                                    <div class="portfolio-item item">
+                                        <div class="portfolio-border">
+                                            <!-- Start Project Thumb -->
+                                            <div class="portfolio-thumb">
+                                                <a class="lightbox" data-lightbox-type="ajax" href="{% url 'master' master.id %}">
+                                                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
+                                                    <img alt="{{ master.apelido }} {{ master.name }}" src="{{ master.photo.url }}">
+                                                </a>
+                                            </div>
+                                            <!-- End Project Thumb -->
+
+                                            <!-- Start Project Details -->
+                                            <div class="portfolio-details">
+                                                <a href="{% url 'master' master.id %}">
+                                                    <span class="h4">
+                                                        Местре {{ master.apelido|default:master.name }}
+                                                    </span>
+                                                </a>
+                                                <br>
+                                                <span>
+                                                    {{ master.date_birth | date:"Y.m.d" }}
+                                                    {% if master.date_death %}
+                                                        - {{ master.date_death | date:"Y.m.d" }}
+                                                    {% endif %}
+                                                </span>
+                                            </div>
+                                            <!-- End Project Details -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Content -->
+{% endblock content %}

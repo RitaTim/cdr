@@ -167,6 +167,11 @@ p {
     margin: 0;
 }
 
+p.date {
+	color: #388707;
+	font-size: 12px;
+}
+
 p strong {
 	font-weight: 600;
 }
@@ -4461,6 +4466,7 @@ ul.footer-nav li a:hover {
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
 }
+
 
 
 

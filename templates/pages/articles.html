@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block title %}
-	{{ title_page }}
+	Культура капоэйры
 {% endblock title%}
 
 {% block content %}
@@ -20,14 +20,14 @@
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="breadcrumbs">
-							<li><a href="#">Главная</a></li>
-							<li>Энциклопедия</li>
-							<li>{{ title_page }}</li>
+							<li><a href="/">Главная</a></li>
+                            <li><a href="{% url "encyclopedia" %}">Энциклопедия</a></li>
+							<li>Культура капоэйры</li>
 						</ul>
 					</div>
 					<div class="col-md-6">
 						<div class="navbar-title">
-							<h1> ЭНЦИКЛОПЕДИЯ <p>школы Capoeira de Rua</p> </h1>          
+							<h1> Культура <p>история капоэйры</p> </h1>
 						</div>
 					</div>
 				</div>
@@ -38,47 +38,67 @@
 		<!-- Start Content -->
 		<div id="content">
 			<div class="container">
-				<div class="row sidebar-page">
+				<div class="row blog-page">
 
-					<div class="col-md-9 page-content">
+					<!-- Start Blog Posts -->
+					<div class="col-md-9 blog-box">
+
+						{% for article in articles %}
+							<!-- Start Post -->
+							<div class="blog-post image-post">
+								<!-- Post Thumb -->
+
+								<!-- Post Content -->
+								<div class="post-content">
+									<h2><a href="{% url 'article' article.id %}"">{{ article.title }}</a></h2>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {% if article.photo %}
+                                            <div>
+                                                <a class="lightbox" title="This is an image title" href="{{ article.photo.url }}">
+                                                    <img alt="{{ article.title }}" class="image-in-list" src="{{ article.photo.url }}">
+                                                </a>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p>{{ article.preview_text|default:""| safe }}</p>
+                                            <p class="date">Обновлено: {{ article.updated|date:"Y.m.d" }}</p>
+                                            <a class="main-button" href="{% url 'article' article.id %}">Подробнее <i class="fa fa-angle-right"></i></a>
+                                        </div>
+                                    </div>
+
+                                </div>
+							</div>
+							<!-- End Post -->
+						{% endfor %}
+
+						<!-- Start Pagination -->
+						<div id="pagination">
+							<span class="all-pages">Страница {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+							{% if page_obj.has_previous %}
+								<a class="page-num"  href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+							{% endif %}
+							<span class="current page-num">{{ page_obj.number }}</span>
+							{% if page_obj.has_next %}
+								<a class="next-page"  href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+							{% endif %}
+							{% if page_obj.has_next %}
+								<a class="next-page"  href="?page={{ page_obj.next_page_number }}">Следующая страница</a>
+							{% endif %}
+						</div>
+						<!-- End Pagination -->
+
 					</div>
+					<!-- End Blog Posts -->
 
 
 					<!--Sidebar-->
 					<div class="col-md-3 sidebar right-sidebar">
-						<!-- Categories Widget -->
-						<div class="widget widget-categories">
-							<div class="margin-bottom-20">
-								<span class="h4">{{ title_page }}</span>
-							</div>
-							<ul class="side-menu" data-section="{{ section }}">
-								{% for article in articles %}
-									<li data-id-article="{{ article.id }}">
-										<a>
-											<span class="accent-color">{{ article.period }} </span>
-											{{ article.title }}{{ article.name }}
-										</a>
-									</li>
-								{% endfor %}
-							</ul>
-						</div>
 
-						<!-- Start Post -->
-						<div class="blog-post quote-post">
-							<div class="qoute-box">
-								<a href="#">
-									<span class="h2">"{{ citation.text }}"</span>
-									<div class="qoute-author">Местре 
-										{%if citation.master__apelido %}
-											{{ citation.master__apelido }}
-												{% else %}
-											{{citation.master__name }}
-										{% endif %}
-									</div>
-								</a>
-							</div>
-						</div>
-						<!-- End Post -->
+						{% include "components/search_widget.html" %}
+
+                        {% include "components/citation_widget.html" %}
 
 						{% include "components/tags.html" %}
 
@@ -89,6 +109,4 @@
 			</div>
 		</div>
 		<!-- End Content -->
-
-	<script type="text/javascript" src="{% static 'js/articles.min.js' %}"></script>
 {% endblock content %}
