@@ -3,7 +3,7 @@
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
-from citations.models import Citation
+from main.helpers import get_random_citation
 from .models import New
 
 class NewListView(ListView):
@@ -14,7 +14,7 @@ class NewListView(ListView):
 
 	def get_context_data(self, **kwargs):
 		context = super(NewListView, self).get_context_data()
-		context.update({'citation': Citation.get_random()})
+		context.update(get_random_citation())
 		return context
 
 
@@ -27,7 +27,7 @@ class NewDetailView(DetailView):
 
 	def get_context_data(self, **kwargs):
 		context = super(NewDetailView, self).get_context_data()
-		context.update({'citation': Citation.get_random()})
+		context.update(get_random_citation())
 		return context
 
 new_detail = NewDetailView.as_view()

@@ -90,7 +90,9 @@
                                             <div class="portfolio-thumb">
                                                 <a class="lightbox" data-lightbox-type="ajax" href="{% url 'master' other_master.id %}">
                                                     <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                                    <img alt="{{ other_master.apelido }} {{ other_master.name }}" src="{{ other_master.photo.url }}">
+                                                    {% if other_master.photo %}
+                                                        <img alt="{{ other_master.apelido }} {{ other_master.name }}" src="{{ other_master.photo.url }}">
+                                                    {% endif %}
                                                 </a>
                                             </div>
                                             <!-- End Project Thumb -->
