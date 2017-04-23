@@ -28,16 +28,19 @@ class New(models.Model):
 	slug = models.SlugField(unique=True, blank=True, null=True)
 	preview_text = models.TextField(u"Описание анонса")
 	detail_text = models.TextField(u"Детальное описание")
-	image = models.ImageField(u"Картинка", upload_to=get_uploaded_file_name,
-	                          blank=True, null=True)
-	updated = models.DateTimeField(u"Данные обновлены", auto_now=True,
-	                               auto_now_add=False)
+	image = models.ImageField(u"Картинка", upload_to=get_uploaded_file_name, blank=True, null=True)
+	keywords = models.CharField(u"Keywords статьи", max_length=400, blank=True, null=True)
+	description = models.CharField(u"Description статьи", max_length=400, blank=True, null=True)
+	updated = models.DateTimeField(u"Данные обновлены", auto_now=True, auto_now_add=False)
 	created = models.DateTimeField(u"Данные созданы", auto_now=False,
 	                               auto_now_add=True)
 
 	objects = NewManager()
 
 	def __str__(self):
+		return self.title
+
+	def __unicode__(self):
 		return self.title
 
 	def get_absolute_url(self):

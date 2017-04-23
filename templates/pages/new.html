@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block meta_description %}
-	{{ new.title }} {{ new.preview_text }}
+	{{ new.description|default:new.preview_text }}
 {% endblock %}
 
 {% block meta_keywords %}
-	{{ new.title }}
+	{{ new.keywords|default:new.title }}
 {% endblock %}
 
 {% block title %}
