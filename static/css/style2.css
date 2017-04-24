@@ -1354,3 +1354,7 @@
 .block-inline-tabs{
 	margin-top: 36px;
 }
+
+.show-video{
+	cursor: pointer;
+}
