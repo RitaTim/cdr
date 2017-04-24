@@ -84,10 +84,10 @@
 															<ul>
 																{% for video in subsection.video_set.all %}
 																	<li>
-																		<a href="{{ video.ref_video }}" target="_blank">
+                                                                        <a class="show-video" target="_blank" data-video-id="{{ video.id }}">
 																			{{ video.title }}
 																		</a>
-																	</li>
+                                                                    </li>
 																{% endfor %}
 															</ul>
 														</div>

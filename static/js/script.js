@@ -716,9 +716,29 @@ var show_form_add_student = function(){
 	})
 };
 
+var show_video = function(video_id){
+	$.ajax({
+		url : "/video/show/",
+		type : "GET",
+		data : {"video_id": video_id},
+		success : function(data) {
+			$('.modal-content').html(data);
+			$('.modal-video-block').modal('show');
+		},
+		error : function(err) {
+			alert("Fail GET /video/show/");
+		}
+	})
+};
+
 $('.add-student').on('click', function(){
 	show_form_add_student();
-})
+});
+
+
+$('.show-video').on('click', function(){
+	show_video($(this).data('video-id'));
+});
 
 var send_form_subscribe = function(){
 	var email_obj = $('#email-sibscriber')
