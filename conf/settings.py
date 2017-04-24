@@ -44,7 +44,8 @@ MODULES = [
 # Requirered packages
 PACKAGES = [
     'transliterate',
-    'sitetree'
+    'sitetree',
+    'embed_video'
 ]
 
 # Application definition

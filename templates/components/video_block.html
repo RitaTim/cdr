@@ -1,0 +1,15 @@
+{% load staticfiles %}
+{% load embed_video_tags %}
+
+<div class="modal-container">
+	<div class="margin-bottom-20">
+		<span class="h4 big-title">{{ embed_video.title|default:""}}</span>
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+	</div>
+
+    {% if embed_video %}
+        {% video embed_video.ref_video %}
+    {% else %}
+        <p>Видео на данный момент недоступно</p>
+    {% endif %}
+</div>

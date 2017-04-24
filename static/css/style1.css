@@ -4467,7 +4467,10 @@ ul.footer-nav li a:hover {
     -o-transition: all 0.2s ease-in-out;
 }
 
-
+.modal-container{
+	padding: 20px;
+	text-align: center;
+}
 
 
 
